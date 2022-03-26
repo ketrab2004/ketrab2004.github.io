@@ -7,14 +7,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/contact"  element={<Contact />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:project"  element={<ProjectView />} />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact"  element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:project"  element={<ProjectView />} />
+        </Routes>
     );
 }
 
