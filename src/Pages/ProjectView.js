@@ -9,10 +9,10 @@ function ProjectView() {
     console.log(path);
 
     return (
-        <div className="ProjectView">
+        <main className="ProjectView">
             <h1>Detailed view of a project page</h1>
             <h2>{path}</h2>
-        </div>
+        </main>
     );
 }
 
