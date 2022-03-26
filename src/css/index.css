@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply font-nunito bg-gray-100;
+}
+noscript {
+    @apply font-comic;
+}
