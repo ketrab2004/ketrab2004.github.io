@@ -43,5 +43,25 @@
             },
             "problemMatcher": []
         },
+
+        {
+            "label": "Deploy to github pages",
+            "type": "shell",
+            "command": "npm run deploy -- -m \"${input:gh-pages-message}\"",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+    ],
+    "inputs": [
+        {
+            "id": "gh-pages-message",
+            "description": "Github Pages build Deploy message",
+            "default": "Deploy",
+            "type": "promptString"
+        },
     ]
 }
