@@ -6,7 +6,8 @@ body {
     @apply font-nunito bg-gray-100;
 }
 noscript {
-    @apply font-comic;
+    @apply font-comic block h-screen w-screen text-center;
+    line-height: 100vh
 }
 
 h1,h2,h3,h4,h5,h6 {
