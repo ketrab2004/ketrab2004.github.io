@@ -6,7 +6,7 @@ function Home() {
     return (
         <main className="Home">
             <h1>Homepage</h1>
-            <img src="img/SkyCircle2.png" className="Home-logo" alt="logo" />
+            <img src="img/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" />
             <p>
                 Edit <code>src/App.js</code> and save to reload.
             </p>
