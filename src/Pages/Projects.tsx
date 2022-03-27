@@ -1,6 +1,10 @@
 import React from "react";
 
-function Projects(): JSX.Element {
+import Projects from "../Data/module";
+
+console.log(Projects);
+
+function ProjectsPage(): JSX.Element {
     return (
         <main className="Projects">
             <h1>List of projects page</h1>
@@ -8,4 +12,4 @@ function Projects(): JSX.Element {
     );
 }
 
-export default Projects;
+export default ProjectsPage;
