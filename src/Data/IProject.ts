@@ -2,6 +2,11 @@ import Tag from "./Tags"
 
 export default interface IProject
 {
-    name: string,
+    highlighted: boolean,
+    
+    image: string,
+    title: string,
+    date: Date,
+
     tags: Tag[]
 }
