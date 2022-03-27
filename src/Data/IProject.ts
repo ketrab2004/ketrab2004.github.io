@@ -4,7 +4,7 @@ export default interface IProject
 {
     highlighted: boolean,
     
-    image: string,
+    thumbnail: string,
     title: string,
     date: Date,
 
