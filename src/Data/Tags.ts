@@ -27,6 +27,8 @@ export type Tool =
     "visual studio 2017" |
     "roblox studio" |
     "sublime text" |
+    "blender" |
+    "paint.net" |
     "sourcetree" |
     "git gui" |
     "git";
