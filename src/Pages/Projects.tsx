@@ -1,6 +1,6 @@
 import React from "react";
 
-function Projects() {
+function Projects(): JSX.Element {
     return (
         <main className="Projects">
             <h1>List of projects page</h1>

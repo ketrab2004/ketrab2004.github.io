@@ -2,7 +2,7 @@ import React from "react";
 
 //import '../css/Home.css';
 
-function Home() {
+function Home(): JSX.Element {
     return (
         <main className="Home">
             <h1>Homepage</h1>
