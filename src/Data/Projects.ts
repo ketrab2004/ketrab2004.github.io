@@ -9,7 +9,7 @@ const Projects: {[key: string]: IProject} = {
         highlighted: false,
         state: State.Abandoned,
         title: "The Cardboard Mod",
-        thumbnail: `${url}/projects/cardboard-mod/thumbnail.jfif`,
+        thumbnail: `${url}/projects/mods/cardboard/thumbnail.jfif`,
         date: new Date("21 May, 2018 @ 12:23"),
 
         type: "mod",
@@ -22,7 +22,7 @@ const Projects: {[key: string]: IProject} = {
         highlighted: false,
         state: State.Completed,
         title: "The Grass Mod",
-        thumbnail: `${url}/projects/grass-mod/thumbnail.png`,
+        thumbnail: `${url}/projects/mods/grass/thumbnail.png`,
         date: new Date("10/01/2017 11:19"), // m d y
 
         type: "mod",
@@ -35,7 +35,7 @@ const Projects: {[key: string]: IProject} = {
         highlighted: false,
         state: State.Completed,
         title: "The Cannibalism Mod",
-        thumbnail: `${url}/projects/cannibalism-mod/thumbnail.jfif`,
+        thumbnail: `${url}/projects/mods/cannibalism/thumbnail.jfif`,
         date: new Date("25 April, 2020 @ 9:08"),
 
         type: "mod",
