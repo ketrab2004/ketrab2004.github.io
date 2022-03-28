@@ -1,4 +1,4 @@
-import Tag from "./Tags"
+import { Type, Language, System, Tool } from "./Tags"
 
 export default interface IProject
 {
@@ -8,5 +8,8 @@ export default interface IProject
     title: string,
     date: Date,
 
-    tags: Tag[]
+    type: Type,
+    system: System,
+    languages: Language[],
+    tools: Tool[]
 }
