@@ -14,6 +14,8 @@ export type Language =
     "java" |
     "kotlin" |
     "dart" |
+    "mysql" |
+    "sql" |
     "html" |
     "html5" |
     "css" |
