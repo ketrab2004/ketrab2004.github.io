@@ -6,7 +6,7 @@ console.log(Projects);
 
 function ProjectsPage(): JSX.Element {
     return (
-        <main className="Projects">
+        <main>
             <h1>List of projects page</h1>
         </main>
     );

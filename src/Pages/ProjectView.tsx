@@ -10,7 +10,7 @@ function ProjectView(): JSX.Element {
     let {title, thumbnail, date, tags} = project;
 
     return project ? (
-        <main className="ProjectView">
+        <main>
             <h1>{title}</h1>
             
         </main>

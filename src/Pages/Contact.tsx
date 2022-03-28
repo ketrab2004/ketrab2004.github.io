@@ -2,7 +2,7 @@ import React from "react";
 
 function Contact(): JSX.Element {
     return (
-        <main className="Contact">
+        <main>
             <h1>Contact me</h1>
         </main>
     );

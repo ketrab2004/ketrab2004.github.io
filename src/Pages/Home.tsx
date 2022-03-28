@@ -4,7 +4,7 @@ import React from "react";
 
 function Home(): JSX.Element {
     return (
-        <main className="Home">
+        <main>
             <h1>Homepage</h1>
             <img src="img/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" />
             <p>
