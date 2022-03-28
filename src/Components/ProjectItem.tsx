@@ -6,7 +6,7 @@ import { IProject } from "../Data/module";
 import { TagItem, TagsHolder } from "../Components/Tag";
 
 export default function ProjectItem({url, project}: {url: string, project: IProject}): JSX.Element {
-    const { title, thumbnail, date, state, type,system,languages,tools } = project;
+    const { title, thumbnail, /*date, state,*/ type,system,languages,tools } = project;
     const tags = [type, system, ...languages, ...tools];
 
     return (

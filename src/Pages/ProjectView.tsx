@@ -9,8 +9,8 @@ function ProjectView(): JSX.Element {
 
     if (!project) return <Error404 />;
 
-    let {title, thumbnail, date, type, system, languages, tools} = project;
-    let tags = [type, system, ...languages, ...tools];
+let {title/*, thumbnail, date, type, system, languages, tools*/} = project;
+    //let tags = [type, system, ...languages, ...tools];
 
     return (
         <main>
