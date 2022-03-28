@@ -5,14 +5,12 @@ import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 
 import './css/index.css';
-import App from './App';
 
-import Navbar from './Components/Navbar';
+import App from './App';
 
 ReactDOM.render(
     <React.StrictMode>
         <HashRouter>
-            <Navbar />
             <App />
         </HashRouter>
     </React.StrictMode>,

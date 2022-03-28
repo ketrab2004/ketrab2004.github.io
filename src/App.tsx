@@ -1,4 +1,7 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import Navbar from './Components/Navbar';
 
 import Home from './Pages/Home';
 import Contact from './Pages/Contact';
@@ -6,10 +9,10 @@ import Projects from './Pages/Projects';
 import ProjectView from './Pages/ProjectView';
 import Error404 from './Pages/404';
 
-import { Routes, Route } from 'react-router-dom';
-
 function App(): JSX.Element {
-    return (
+    return (<>
+        <Navbar />
+
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact"  element={<Contact />} />
@@ -18,7 +21,9 @@ function App(): JSX.Element {
 
             <Route path="*" element={<Error404 />}/>
         </Routes>
-    );
+
+        {/* <Footer /> */}
+    </>);
 }
 
 export default App;
