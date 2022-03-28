@@ -3,7 +3,7 @@ import React from "react";
 function Home(): JSX.Element {
     return (
         <main>
-            <h1>Homepage</h1>
+            <h1 className="text-3xl mb-2">Homepage</h1>
             <img src="img/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" />
             <p>
                 Edit <code>src/App.js</code> and save to reload.

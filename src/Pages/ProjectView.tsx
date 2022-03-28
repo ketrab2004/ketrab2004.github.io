@@ -14,7 +14,7 @@ function ProjectView(): JSX.Element {
 
     return (
         <main>
-            <h1>{title}</h1>
+            <h1 className="text-3xl mb-2">{title}</h1>
             
         </main>
     );

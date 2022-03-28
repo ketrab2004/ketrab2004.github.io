@@ -3,7 +3,7 @@ import React from "react";
 function Error404(): JSX.Element {
     return (
         <main>
-            <h1>404</h1>
+            <h1 className="text-3xl mb-2">404</h1>
             <p>
                 This page doesn't exist
             </p>
