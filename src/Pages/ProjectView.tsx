@@ -7,14 +7,16 @@ function ProjectView(): JSX.Element {
     const params = useParams();
     const project = Projects[params.project ?? ''];
 
+    if (!project) return <Error404 />;
+
     let {title, thumbnail, date, tags} = project;
 
-    return project ? (
+    return (
         <main>
             <h1>{title}</h1>
             
         </main>
-    ) : <Error404 />;
+    );
 }
 
 export default ProjectView;
