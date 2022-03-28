@@ -1,4 +1,4 @@
-export type Tag = Language | Tool | System;
+export type Tag = Language | Tool | System | Type;
 export default Tag;
 
 export type Language =
@@ -43,3 +43,13 @@ export type System =
     "forge" |
     "laravel" |
     "react";
+
+export type Type =
+    "game" |
+    "plugin" |
+    "library" |
+    "mod" |
+    "app" |
+    "website" |
+    "other";
+

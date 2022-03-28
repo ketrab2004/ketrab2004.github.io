@@ -1,6 +1,6 @@
 import Projects from "./Projects";
 import IProject from "./IProject";
-import type { default as Tag, Language, Tool, System } from "./Tags";
+import type { default as Tag, Language, Tool, System, Type } from "./Tags";
 
 export default Projects;
 export {
@@ -9,5 +9,6 @@ export {
     Tag,
         Language,
         Tool,
-        System
+        System,
+        Type
 };
