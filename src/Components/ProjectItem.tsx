@@ -16,7 +16,13 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
             active:ring ring-sky-400 ring-opacity-25 md:ring-transparent"
             to={url} key={url}>
 
-            <img className="w-full h-52 sm:h-36 object-cover" src={thumbnail} alt={title} />
+            <div className="relative w-full h-52 sm:h-36 overflow-hidden">
+                <img className="
+                    w-full h-full absolute-center object-cover
+                    transition-transform duration-700
+                    group-hover:scale-105 group-active:scale-110 group-focus:scale-105"
+                    src={thumbnail} alt={title} />
+            </div>
 
             <div className="px-2 pt-1 pb-2">
                 <h3 className="mb-1 text-xl sm:text-base">{title}</h3>
