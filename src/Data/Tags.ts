@@ -42,11 +42,14 @@ export type System =
     "platformio" |
     "roblox" |
     "minecraft" |
+    "other (ingame)" |
     "flutter" |
     "spigot" |
     "forge" |
     "laravel" |
     "react" |
+    "php" |
+    "raw html" |
     "other";
 
 export type Type =
