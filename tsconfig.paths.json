@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./src/*"],
+
+            "@components/*": ["./src/Components/*"],
+            "@functions/*": ["./src/Functions/*"],
+            "@pages/*": ["./src/Pages/*"],
+
+            "@data/*": ["./src/data/*"],
+            "@data/tags": ["./src/data/Tags/module"],
+            "@data/projects": ["./src/data/Projects/module"],
+
+            "@tests/*": ["./src/tests/*"]
+        },
+    }
+}
