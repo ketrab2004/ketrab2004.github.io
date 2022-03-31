@@ -1,6 +1,6 @@
 import React from "react";
 
-import CapitalizeWords from "../functions/CapitalizeWords";
+import CapitalizeWords from "../Functions/CapitalizeWords";
 
 import { Link } from 'react-router-dom';
 import { Language, Tool, System, Type } from "../Data/Tags/module";
