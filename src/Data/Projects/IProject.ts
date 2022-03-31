@@ -1,5 +1,5 @@
 import StateEnum from "./StateEnum"
-import { Type, Language, System, Tool } from "./Tags"
+import { Type, Language, System, Tool } from "../Tags/module"
 
 export default interface IProject
 {

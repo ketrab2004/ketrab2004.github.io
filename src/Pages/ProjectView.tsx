@@ -1,7 +1,7 @@
 import React from "react";
 import Error404 from "./404";
 import { useParams } from "react-router-dom"
-import Projects from "../Data/module";
+import Projects from "../Data/Projects/module";
 
 function ProjectView(): JSX.Element {
     const params = useParams();

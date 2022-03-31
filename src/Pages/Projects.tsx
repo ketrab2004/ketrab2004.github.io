@@ -1,5 +1,5 @@
 import React from "react";
-import { Projects } from "../Data/module";
+import { Projects } from "../Data/Projects/module";
 import ProjectItem from "../Components/ProjectItem";
 
 function ProjectsPage(): JSX.Element {

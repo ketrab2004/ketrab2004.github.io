@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import { IProject } from "../Data/module";
+import { IProject } from "../Data/Projects/module";
 
 import { TagItem, TagsHolder } from "../Components/Tag";
 
