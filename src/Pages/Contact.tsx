@@ -1,6 +1,6 @@
 import React from "react";
 
-function Contact(): JSX.Element {
+export function Contact(): JSX.Element {
     return (
         <main>
             <h1 className="text-3xl mb-2">Contact me</h1>

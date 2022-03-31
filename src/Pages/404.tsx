@@ -1,6 +1,6 @@
 import React from "react";
 
-function Error404(): JSX.Element {
+export function Error404(): JSX.Element {
     return (
         <main>
             <h1 className="text-3xl mb-2">404</h1>

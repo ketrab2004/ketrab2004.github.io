@@ -1,8 +1,8 @@
 import React from "react";
 import { Projects } from "@data/projects";
-import ProjectItem from "@components/ProjectItem";
+import { ProjectItem } from "@components";
 
-function ProjectsPage(): JSX.Element {
+export function ProjectsPage(): JSX.Element {
     return (
         <main className="px-5">
             <h1 className="text-3xl mb-2">Projects:</h1>
