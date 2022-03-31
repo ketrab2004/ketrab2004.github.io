@@ -6,23 +6,23 @@ import ITag from "./ITag";
 const Tags: Partial<Record<Tag, ITag>> = {
     
     // languages
-    "kotlin": {
+    kotlin: {
         backgroundColor: 0xA97BFF
     },
-    "ts": {
+    ts: {
         backgroundColor: 0x2B7489
     },
-    "js": {
+    js: {
         backgroundColor: 0xF1E05A
     },
-    "html": {
+    html: {
         backgroundColor: 0xE34C26
     },
-    "css": {
+    css: {
         backgroundColor: 0x563D7C,
         textColor: 0xFFFFFF
     },
-    "php": {
+    php: {
         backgroundColor: 0x4F5D95,
         textColor: 0xFFFFFF
     },
@@ -31,7 +31,7 @@ const Tags: Partial<Record<Tag, ITag>> = {
     },
     
     // tools
-    "blender": {
+    blender: {
         backgroundColor: 0xE87C0D,
         textColor: 0x275787
     }
