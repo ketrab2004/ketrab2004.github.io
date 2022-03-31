@@ -7,24 +7,24 @@ const Tags: Partial<Record<Tag, ITag>> = {
     
     // languages
     "kotlin": {
-        backgroundColor: "#A97BFF"
+        backgroundColor: 0xA97BFF
     },
     "ts": {
-        backgroundColor: "#2B7489"
+        backgroundColor: 0x2B7489
     },
     "js": {
-        backgroundColor: "#F1E05A"
+        backgroundColor: 0xF1E05A
     },
     "html": {
-        backgroundColor: "#E34C26"
+        backgroundColor: 0xE34C26
     },
     "css": {
-        backgroundColor: "#563D7C",
-        textColor: "#FFFFFF"
+        backgroundColor: 0x563D7C,
+        textColor: 0xFFFFFF
     },
     "php": {
-        backgroundColor: "#4F5D95",
-        textColor: "#FFFFFF"
+        backgroundColor: 0x4F5D95,
+        textColor: 0xFFFFFF
     },
     "no-code": {
         displayName: "no code",
@@ -32,8 +32,8 @@ const Tags: Partial<Record<Tag, ITag>> = {
     
     // tools
     "blender": {
-        backgroundColor: "#E87C0D",
-        textColor: "#275787"
+        backgroundColor: 0xE87C0D,
+        textColor: 0x275787
     }
 };
 
