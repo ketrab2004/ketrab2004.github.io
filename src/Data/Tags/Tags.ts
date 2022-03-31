@@ -3,7 +3,7 @@ import ITag from "./ITag";
 
 // Record<Tag, ITag> = { [key in Tag]: ITag };
 // Partial<> makes it so not every Tag has to be defined
-const Tags: Partial<Record<Tag, ITag>> = {
+export const Tags: Partial<Record<Tag, ITag>> = {
     
     // languages
     kotlin: {
