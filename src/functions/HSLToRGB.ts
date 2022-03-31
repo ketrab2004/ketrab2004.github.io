@@ -1,3 +1,4 @@
+/* eslint-disable */
 // private function for HSLToRGB
 function hue2rgb(p: number, q: number, t: number): number{
     if(t < 0) t += 1;

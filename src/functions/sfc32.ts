@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Simple Fast Counter 32-bit
  * 

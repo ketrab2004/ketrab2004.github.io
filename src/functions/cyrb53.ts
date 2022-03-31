@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * 53-bit string hash function
  * 
