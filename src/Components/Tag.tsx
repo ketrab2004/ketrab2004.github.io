@@ -1,9 +1,9 @@
 import React from "react";
 
-import CapitalizeWords from "../Functions/CapitalizeWords";
+import CapitalizeWords from "@functions/CapitalizeWords";
 
 import { Link } from 'react-router-dom';
-import { Language, Tool, System, Type } from "../Data/Tags/module";
+import { Language, Tool, System, Type } from "@data/tags";
 
 export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: string}): JSX.Element {
     const Clickable = to ? Link : "a";

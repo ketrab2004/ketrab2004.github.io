@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import { IProject } from "../Data/Projects/module";
+import { IProject } from "@data/projects";
 
-import { TagItem, TagsHolder } from "../Components/Tag";
+import { TagItem, TagsHolder } from "@components/Tag";
 
 export default function ProjectItem({url, project}: {url: string, project: IProject}): JSX.Element {
     const { title, thumbnail, /*date, state,*/ type,system,languages,tools } = project;
