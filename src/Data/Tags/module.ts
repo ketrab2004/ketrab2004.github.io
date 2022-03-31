@@ -1,4 +1,4 @@
-import type { default as Tag, Language, Tool, System, Type } from "./Tags";
+import type { default as Tag, Language, Tool, System, Type } from "./TagTypes";
 import ITag from "./ITag";
 
 //export default TagData;
