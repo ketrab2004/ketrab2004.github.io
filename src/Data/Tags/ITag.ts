@@ -1,7 +1,7 @@
 export default interface ITag
 {
-    displayName: string,
+    displayName?: string,
 
-    backgroundColor: string,
-    textColor: string
+    backgroundColor?: string,
+    textColor?: string
 }
