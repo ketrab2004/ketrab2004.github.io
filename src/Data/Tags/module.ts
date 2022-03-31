@@ -1,10 +1,13 @@
 import type { default as Tag, Language, Tool, System, Type } from "./Tags";
+import ITag from "./ITag";
 
-//export default Projects;
+//export default TagData;
 export {
     Tag,
         Language,
         Tool,
         System,
-        Type
+        Type,
+
+    ITag
 };
