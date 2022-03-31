@@ -4,7 +4,7 @@ import IProject from "./IProject";
 // PUBLIC_URL
 const url = window.location.origin;
 
-const Projects: {[key: string]: IProject} = {
+export const Projects: {[key: string]: IProject} = {
     "cardboard-mod": {
         highlighted: false,
         state: State.Abandoned,
