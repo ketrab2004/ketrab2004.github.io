@@ -1,4 +1,4 @@
-export type Tag = Tool;
+export type Tag = Language | Tool | System | Type;
 export default Tag;
 
 export type Language =

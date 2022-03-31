@@ -1,5 +1,5 @@
+import { Type, Language, System, Tool } from "@data/tags"
 import StateEnum from "./StateEnum"
-import { Type, Language, System, Tool } from "./Tags"
 
 export default interface IProject
 {

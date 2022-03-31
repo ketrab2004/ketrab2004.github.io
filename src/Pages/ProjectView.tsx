@@ -1,15 +1,15 @@
 import React from "react";
-import Error404 from "./404";
 import { useParams } from "react-router-dom"
-import Projects from "../Data/module";
+import Projects from "@data/projects";
+import Error404 from "./404";
 
-function ProjectView(): JSX.Element {
+export function ProjectView(): JSX.Element {
     const params = useParams();
     const project = Projects[params.project ?? ''];
 
     if (!project) return <Error404 />;
 
-let {title/*, thumbnail, date, type, system, languages, tools*/} = project;
+    let {title/*, thumbnail, date, type, system, languages, tools*/} = project;
     //let tags = [type, system, ...languages, ...tools];
 
     return (

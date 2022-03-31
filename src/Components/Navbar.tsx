@@ -2,11 +2,7 @@ import React from "react";
 
 import { NavLink } from 'react-router-dom';
 
-interface INavbarItemProps {
-    to: string,
-    children?: React.ReactNode
-}
-function NavbarItem({to, children}: INavbarItemProps): JSX.Element {
+export function NavbarItem({to, children}: {to: string, children?: React.ReactNode}): JSX.Element {
     return (
         <li className="p-5">
             <NavLink to={to} className={({isActive}) =>
@@ -22,7 +18,7 @@ function NavbarItem({to, children}: INavbarItemProps): JSX.Element {
     );
 }
 
-function Navbar(): JSX.Element {
+export function Navbar(): JSX.Element {
     return (
         <header className="Navbar font-sans shadow mb-2 bg-white">
             <ul className="list-none flex flex-row flex-nowrap justify-end">
