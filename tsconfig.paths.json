@@ -4,9 +4,9 @@
         "paths": {
             "~/*": ["./src/*"],
 
-            "@components/*": ["./src/Components/*"],
-            "@functions/*": ["./src/Functions/*"],
-            "@pages/*": ["./src/Pages/*"],
+            "@components": ["./src/Components/module"],
+            "@functions": ["./src/Functions/module"],
+            "@pages": ["./src/Pages/module"],
 
             "@data/*": ["./src/data/*"],
             "@data/tags": ["./src/Data/Tags/module"],
