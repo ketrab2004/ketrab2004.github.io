@@ -16,7 +16,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
             active:ring ring-sky-400 ring-opacity-25 md:ring-transparent"
             to={url} key={url}>
 
-            <div className="relative w-full h-52 sm:h-36 overflow-hidden">
+            <div className="relative w-full h-52 sm:h-36 3xl:h-52 overflow-hidden">
                 <img className="
                     w-full h-full absolute-center object-cover
                     transition-transform duration-700
