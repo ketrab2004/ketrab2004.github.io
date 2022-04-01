@@ -2,6 +2,7 @@ import CapitalizeWords from "./CapitalizeWords";
 import cyrb53 from "./cyrb53";
 import sfc32 from "./sfc32";
 import ColourFromString from "./ColourFromString";
+import ColourFromNumber from "./ColourFromNumber";
 import GetTextColourForBackground from "./GetTextColourForBackground";
 import HSLToRGB from "./HSLToRGB";
 
@@ -12,6 +13,7 @@ export {
     sfc32,
 
     ColourFromString,
+    ColourFromNumber,
     GetTextColourForBackground,
 
     HSLToRGB
