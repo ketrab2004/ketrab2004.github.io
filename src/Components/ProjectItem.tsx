@@ -12,7 +12,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
     return (
         <Link className="group
             shadow rounded overflow-hidden bg-white
-            transition-shadow hover:shadow-lg active:shadow-lg focus:shadow-lg
+            transition-shadow hover:shadow-lg active:shadow-xl focus:shadow-lg
             active:ring ring-sky-400 ring-opacity-25 md:ring-transparent"
             to={url} key={url}>
 
