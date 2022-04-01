@@ -27,7 +27,7 @@ export const Tags: Partial<Record<Tag, ITag>> = {
         textColor: 0xFFFFFF
     },
     "no-code": {
-        displayName: "no code",
+        displayName: "No Code",
     },
     
     // tools
