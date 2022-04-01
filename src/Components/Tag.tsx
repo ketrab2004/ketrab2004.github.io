@@ -1,16 +1,24 @@
 import React from "react";
 
-import { CapitalizeWords } from "@functions";
+import { GetTagInfo } from "@data/tags";
+import { ColourFromNumber } from "@functions";
 
 import { Link } from 'react-router-dom';
 import { Language, Tool, System, Type } from "@data/tags";
 
 export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: string}): JSX.Element {
     const Clickable = to ? Link : "a";
+
+    const {displayName, backgroundColor, textColor, borderColor} = GetTagInfo(name);
+
     return (
-        <li className="inline-block p-1 bg-sky-500 rounded shadow">
+        <li className="inline-block p-1 rounded shadow border-2" style={{
+                backgroundColor: ColourFromNumber(backgroundColor ?? 0),
+                color: ColourFromNumber(textColor ?? 0),
+                borderColor: ColourFromNumber(borderColor ?? 0)
+            }}>
             <Clickable to={to ?? ''}>
-                {CapitalizeWords(name)}
+                {displayName}
             </Clickable>
         </li>
     );
