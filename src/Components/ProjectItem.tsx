@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { format as formatDate } from 'date-fns';
 
 import { IProject } from "@data/projects";
 
 import { TagItem, TagsHolder } from "@components";
 
 export default function ProjectItem({url, project}: {url: string, project: IProject}): JSX.Element {
-    const { title, thumbnail, /*date, state,*/ type,system,languages,tools } = project;
+    const { title, thumbnail, date, /*state,*/ type,system,languages,tools } = project;
     const tags = [type, system, ...languages, ...tools];
 
     return (
@@ -27,7 +28,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
             <div className="px-2 pt-1 pb-2">
                 <div className="flex flex-row justify-between text-xs">
                     <h3 className="mb-1 text-xl sm:text-base">{title}</h3>
-                    <p>7/4/2004</p>
+                    <p>{ formatDate(date, "d/MM/yyyy") }</p>
                 </div>
                 <TagsHolder className="justify-evenly gap-x-2 gap-y-1">
                     {/* split tags array into TagItems */}
