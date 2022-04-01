@@ -35,8 +35,8 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
     
     // tools
     blender: {
-        backgroundColor: 0xE87C0D,
-        textColor: 0x275787
+        backgroundColor: 0xE87C0D
+        //icon: `${url}/img/tag-icons/blender.png`
     },
     "paint.net": {
         icon: `${url}/img/tag-icons/paint-net.png`
