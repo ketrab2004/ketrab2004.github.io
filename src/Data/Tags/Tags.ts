@@ -46,6 +46,9 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
     },
     "paint.net": {
         icon: `${url}/img/tag-icons/paint-net.png`
+    },
+    mcreator: {
+        icon: `${url}/img/tag-icons/mcreator.png`
     }
 };
 
