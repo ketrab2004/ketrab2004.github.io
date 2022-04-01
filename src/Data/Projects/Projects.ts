@@ -52,7 +52,7 @@ export const Projects: {[key: string]: IProject} = {
         date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
 
         type: "game",
-        languages: ["html5", "css", "js"],
+        languages: ["html", "css", "js"],
         tools: ["vscode"],
         system: "raw html",
     },

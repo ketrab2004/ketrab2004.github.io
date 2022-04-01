@@ -17,7 +17,6 @@ export type Language =
     "mysql" |
     "sql" |
     "html" |
-    "html5" |
     "css" |
     "scss" |
     "php" |
