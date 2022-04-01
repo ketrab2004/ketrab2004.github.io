@@ -34,6 +34,12 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
     },
     
     // tools
+    vscode: {
+        backgroundColor: 0x3C99D6,
+    },
+    "visual studio": {
+        backgroundColor: 0x854CC7,
+    },
     blender: {
         backgroundColor: 0xE87C0D
         //icon: `${url}/img/tag-icons/blender.png`

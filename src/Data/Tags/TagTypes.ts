@@ -24,8 +24,7 @@ export type Language =
 
 export type Tool =
     "vscode" |
-    "visual studio 2022" |
-    "visual studio 2017" |
+    "visual studio" |
     "roblox studio" |
     "mcreator" |
     "sublime text" |
