@@ -6,7 +6,6 @@ const url = window.location.origin;
 
 export const Projects: {[key: string]: IProject} = {
     "cardboard-mod": {
-        highlighted: false,
         state: State.Abandoned,
         title: "The Cardboard Mod",
         thumbnail: `${url}/projects/mods/cardboard/thumbnail.jfif`,
@@ -19,7 +18,6 @@ export const Projects: {[key: string]: IProject} = {
     },
 
     "grass-mod": {
-        highlighted: false,
         state: State.Completed,
         title: "The Grass Mod",
         thumbnail: `${url}/projects/mods/grass/thumbnail.png`,
@@ -32,7 +30,6 @@ export const Projects: {[key: string]: IProject} = {
     },
 
     "cannibalism-mod": {
-        highlighted: false,
         state: State.Completed,
         title: "The Cannibalism Mod",
         thumbnail: `${url}/projects/mods/cannibalism/thumbnail.jfif`,
@@ -45,7 +42,6 @@ export const Projects: {[key: string]: IProject} = {
     },
 
     "html5-hangman": {
-        highlighted: false,
         state: State.Completed,
         title: "HTML5 Hangman game",
         thumbnail: `${url}/projects/html5/hangman/thumbnail.png`,
@@ -58,7 +54,6 @@ export const Projects: {[key: string]: IProject} = {
     },
 
     "roblox-infinite-terrain": {
-        highlighted: false,
         state: State.Completed,
         title: "Roblox Infinite Terrain",
         thumbnail: `${url}/projects/roblox/infinite-terrain/thumbnail.png`,

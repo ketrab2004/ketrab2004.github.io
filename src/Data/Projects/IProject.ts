@@ -3,7 +3,8 @@ import StateEnum from "./StateEnum"
 
 export default interface IProject
 {
-    highlighted: boolean,
+    highlighted?: boolean,
+    collection?: number,
     state: StateEnum,
     
     thumbnail: string,
