@@ -13,9 +13,9 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
 
     return (
         <li className="inline-block p-1 rounded shadow border-2" style={{
-                backgroundColor: ColourFromNumber(backgroundColor ?? 0),
-                color: ColourFromNumber(textColor ?? 0),
-                borderColor: ColourFromNumber(borderColor ?? 0)
+                backgroundColor: ColourFromNumber(backgroundColor),
+                color: ColourFromNumber(textColor),
+                borderColor: ColourFromNumber(borderColor)
             }}>
             <Clickable to={to ?? ''}>
                 {displayName}
