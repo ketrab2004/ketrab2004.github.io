@@ -1,6 +1,9 @@
 import { default as Tag } from "./TagTypes"; 
 import ITag from "./ITag";
 
+// PUBLIC_URL
+const url = window.location.origin;
+
 // Record<Tag, ITag> = { [key in Tag]: ITag };
 // Partial<> makes it so not every Tag has to be defined
 export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
@@ -34,6 +37,9 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
     blender: {
         backgroundColor: 0xE87C0D,
         textColor: 0x275787
+    },
+    "paint.net": {
+        icon: `${url}/img/tag-icons/paint-net.png`
     }
 };
 

@@ -37,6 +37,8 @@ export default function GetTagInfo(tag: Tag): ITag {
 
         backgroundColor: background,
         borderColor: border,
-        textColor: text
+        textColor: text,
+
+        icon: tagInfo.icon ?? undefined
     }
 }
