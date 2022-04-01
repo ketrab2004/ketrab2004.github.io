@@ -1,8 +1,10 @@
 export default interface ITag
 {
-    displayName?: string,
+    displayName: string,
+    
+    icon?: string;
 
-    backgroundColor?: number,
-    borderColor?: number,
-    textColor?: number
+    backgroundColor: number,
+    borderColor: number,
+    textColor: number
 }

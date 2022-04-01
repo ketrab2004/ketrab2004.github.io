@@ -9,8 +9,8 @@ import ITag from "./ITag";
  * 
  * @return {ITag} info of the tag
  */
-export default function GetTagInfo(tag: Tag): Required<ITag> {
-    const tagInfo = Tags[tag] ?? {};
+export default function GetTagInfo(tag: Tag): ITag {
+    const tagInfo: Partial<ITag> = Tags[tag] ?? {};
 
     let background = tagInfo.backgroundColor ?? ColourFromString(tag); // set the background colour if it isn't set
 
@@ -23,8 +23,9 @@ export default function GetTagInfo(tag: Tag): Required<ITag> {
             (background & 0x0000FF); // blue
 
         border = total > 255*3/2 ? // if the total is greater than half of the max of the colours
-            background - 0x101010 : // set the border colour to be the same as the background colour but a bit darker
-            background + 0x101010; // set the border colour to be the same as the background colour but a bit lighter
+            // set the border colour to be the same as the background but a bit darker
+            background - 0x0a0a0a : // set the border colour to be the same as the background colour but a bit darker
+            background + 0x0a0a0a; // set the border colour to be the same as the background colour but a bit lighter
     }
 
     let text = tagInfo.textColor ?? GetTextColourForBackground(background); // set the text colour if it isn't set
