@@ -1,8 +1,10 @@
 import { default as Tag } from "./TagTypes"; 
 import ITag from "./ITag";
 
-// PUBLIC_URL
-const url = window.location.origin;
+//#region Image imports
+import paintNetImage from "@images/tag-icons/paint-net.png";
+import mcreatorImage from "@images/tag-icons/mcreator.png";
+//#endregion
 
 // Record<Tag, ITag> = { [key in Tag]: ITag };
 // Partial<> makes it so not every Tag has to be defined
@@ -42,13 +44,12 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
     },
     blender: {
         backgroundColor: 0xE87C0D
-        //icon: `${url}/img/tag-icons/blender.png`
     },
     "paint.net": {
-        icon: `${url}/img/tag-icons/paint-net.png`
+        icon: paintNetImage,
     },
     mcreator: {
-        icon: `${url}/img/tag-icons/mcreator.png`
+        icon: mcreatorImage
     }
 };
 

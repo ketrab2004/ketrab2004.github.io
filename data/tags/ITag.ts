@@ -1,8 +1,10 @@
+import { StaticImageData } from "next/image";
+
 export default interface ITag
 {
     displayName: string,
     
-    icon?: string;
+    icon?: StaticImageData;
 
     backgroundColor: number,
     borderColor: number,

@@ -4,14 +4,16 @@ import Tags from "./Tags";
 import GetTagInfo from "./GetTagInfo";
 
 export default Tags;
-export {
+export type {
     Tag,
         Language,
         Tool,
         System,
         Type,
 
-    ITag,
+    ITag
+}
+export {
     Tags,
     GetTagInfo
 };
