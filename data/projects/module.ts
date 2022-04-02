@@ -4,7 +4,9 @@ import StateEnum from "./StateEnum";
 
 export default Projects;
 export type {
+    IProject
+}
+export {
     Projects,
-    IProject,
     StateEnum,
 };
