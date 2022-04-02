@@ -5,7 +5,6 @@ import * as Components from "@components";
 
 function MyApp({ Component, pageProps }: AppProps) {
     console.log(pageProps, Component.displayName);
-    
 
     return <>
         <Components.Navbar />
