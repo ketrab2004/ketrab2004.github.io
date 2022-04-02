@@ -3,10 +3,12 @@
     "files.exclude": {
         ".gitignore": true,
         ".vscode": true,
+        ".next": true,
 
         "node_modules": true,
         "build": true,
 
         "package-lock.json": true,
+        "next-env.d.ts": true,
     }
 }
