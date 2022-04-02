@@ -18,11 +18,14 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["./"],
+            "@images/*": ["./images/*"],
             "@components": ["./components/module"],
             "@functions": ["./functions/module"],
+
             "@data/tags": ["./data/tags/module"],
             "@data/projects": ["./data/projects/module"],
             "@data/*": ["./data/*"],
+
             "@tests/*": ["./tests/*"]
         }
     },
