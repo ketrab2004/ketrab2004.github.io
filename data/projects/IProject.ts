@@ -1,4 +1,5 @@
 import { Type, Language, System, Tool } from "@data/tags"
+import { StaticImageData } from "next/image"
 import StateEnum from "./StateEnum"
 
 export default interface IProject
@@ -7,7 +8,7 @@ export default interface IProject
     collection?: number,
     state: StateEnum,
     
-    thumbnail: string,
+    thumbnail: StaticImageData,
     title: string,
     date: Date,
 

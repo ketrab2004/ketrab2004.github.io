@@ -3,7 +3,7 @@ import IProject from "./IProject";
 import StateEnum from "./StateEnum";
 
 export default Projects;
-export {
+export type {
     Projects,
     IProject,
     StateEnum,
