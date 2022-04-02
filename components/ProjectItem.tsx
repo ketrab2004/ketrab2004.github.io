@@ -11,6 +11,8 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
     const { title, thumbnail, date, /*state,*/ type,system,languages,tools } = project;
     const tags = [type, system, ...languages, ...tools];
 
+    console.log(project);
+
     return (
         <Link href={url} key={url}>
             <a className="group
@@ -29,7 +31,8 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
                 <div className="px-2 pt-1 pb-2">
                     <div className="flex flex-row justify-between text-xs">
                         <h3 className="mb-1 text-xl sm:text-base">{title}</h3>
-                        <p>{ formatDate(date, "d/MM/yyyy") }</p>
+                        {/* date is string for some reason 😢, so it has to be converted back */}
+                        <p>{ formatDate(new Date(date), "d/MM/yyyy") }</p>
                     </div>
                     <TagsHolder className="justify-evenly gap-x-2 gap-y-1">
                         {/* split tags array into TagItems */}

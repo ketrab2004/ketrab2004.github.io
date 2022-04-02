@@ -5,8 +5,6 @@ import type { AppProps } from "next/app";
 import * as Components from "@components";
 
 function MyApp({ Component, pageProps }: AppProps) {
-    console.log(pageProps, Component.name);
-
     return <>
         <Components.Navbar />
 

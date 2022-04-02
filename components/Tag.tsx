@@ -11,7 +11,7 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
     const {displayName, backgroundColor, textColor, borderColor, icon} = GetTagInfo(name);
 
     return (
-        <li className="inline-flex items-center p-0.5 rounded shadow border-2" style={{
+        <li key={name} className="inline-flex items-center p-0.5 rounded shadow border-2" style={{
                 backgroundColor: ColourFromNumber(backgroundColor),
                 color: ColourFromNumber(textColor),
                 borderColor: ColourFromNumber(borderColor)
