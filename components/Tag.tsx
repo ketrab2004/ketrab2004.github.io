@@ -1,9 +1,10 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 import { GetTagInfo } from "@data/tags";
 import { ColourFromNumber } from "@functions";
 
-import Link from "next/link";
 import { Language, Tool, System, Type } from "@data/tags";
 
 export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: string}): JSX.Element {
@@ -15,7 +16,7 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
                 color: ColourFromNumber(textColor),
                 borderColor: ColourFromNumber(borderColor)
             }}>
-            {icon ? <img className="h-4 pr-1" src={icon} /> : null}
+            {icon ? <Image className="h-4 pr-1" src={icon} /> : null}
 
             <Link href={to ?? ''}>
                 <a className="text-sm">
