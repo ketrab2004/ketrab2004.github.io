@@ -3,12 +3,10 @@ import React from "react";
 import { GetTagInfo } from "@data/tags";
 import { ColourFromNumber } from "@functions";
 
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 import { Language, Tool, System, Type } from "@data/tags";
 
 export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: string}): JSX.Element {
-    const Clickable = to ? Link : "a";
-
     const {displayName, backgroundColor, textColor, borderColor, icon} = GetTagInfo(name);
 
     return (
@@ -19,9 +17,11 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
             }}>
             {icon ? <img className="h-4 pr-1" src={icon} /> : null}
 
-            <Clickable to={to ?? ''} className="text-sm">
-                {displayName}
-            </Clickable>
+            <Link href={to ?? ''}>
+                <a className="text-sm">
+                    {displayName}
+                </a>
+            </Link>
         </li>
     );
 }
