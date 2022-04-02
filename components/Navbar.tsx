@@ -5,16 +5,18 @@ import Link from "next/link";
 export function NavbarItem({href, children}: {href: string, children?: React.ReactNode}): JSX.Element {
     return (
         <li className="p-5">
-            <Link href={href} 
-                // className={({isActive}) =>
-                // "p-5 text-black hover:opacity-80 transition-opacity ease-in-out duration-200" + // default classes
+            <Link href={href}>
+                <a
+                className={
+                "p-5 text-black hover:opacity-80 transition-opacity ease-in-out duration-200" // default classes
                 // (isActive ?
                 //     " italic" : // current page classes
                 //     " ") // not current page classes
-                // }
+                }
                 >
                 
-                {children}
+                    {children}
+                </a>
             </Link>
         </li>
     );
