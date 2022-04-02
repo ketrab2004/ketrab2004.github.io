@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { format as formatDate } from 'date-fns';
 
 import { IProject } from "@data/projects";
@@ -18,7 +19,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
                 active:ring ring-sky-400 ring-opacity-25 md:ring-transparent">
 
                 <div className="relative w-full h-52 sm:h-36 3xl:h-52 overflow-hidden">
-                    <img className="
+                    <Image className="
                         w-full h-full absolute-center object-cover
                         transition-transform duration-700
                         group-hover:scale-105 group-active:scale-110 group-focus:scale-105"
