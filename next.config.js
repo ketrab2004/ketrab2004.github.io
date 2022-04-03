@@ -12,7 +12,7 @@ module.exports = withPlugins([
 
         imagesName: "[name].[ext].__[hash]__.[ext]",
 
-        optimizeImagesInDev: true,
+        optimizeImagesInDev: true
     }],
 
 ], nextConfig);
