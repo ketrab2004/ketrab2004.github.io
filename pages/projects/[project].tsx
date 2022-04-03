@@ -1,33 +1,37 @@
 import React from "react";
 import Projects, { IProject } from "@data/projects";
-import ErrorPage from "next/error";
-import { NextPageContext } from "next";
+import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 
-export class ProjectView extends React.Component<{project: IProject, statusCode?: number}> {
-    // use getInitialProps instead of getStaticProps
-    // because getStaticProps is for server-side rendering
-    // and this site will be client-side rendered
-    static async getInitialProps(ctx: NextPageContext): Promise<any> {
-        const params: any = ctx.query;
-        const project = Projects[params.project ?? ''];
+export function ProjectView(params: { project: string }): JSX.Element {
+    const {title/*, thumbnail, date, type, system, languages, tools*/}: IProject = JSON.parse(params.project);
+    //let tags = [type, system, ...languages, ...tools];
 
-        if (!project) return { statusCode: 404 };
+    return (
+        <main>
+            <h1 className="text-3xl mb-2">{title}</h1>
+            
+        </main>
+    );
+}
 
-        return { project };
-    }
+/**
+ * get json for each static project page
+ * so that it can be loaded in in the statically generated pages
+ */
+export function getStaticProps(props: { params: { project: string } }): GetStaticPropsResult<{ project: string /* JSON */ }> {
+    const project = JSON.stringify( Projects[props.params.project] );
 
-    render(): JSX.Element {
-        if(this.props.statusCode) return <ErrorPage statusCode={this.props.statusCode} />;
-        
-        const {title/*, thumbnail, date, type, system, languages, tools*/} = this.props.project;
-        //let tags = [type, system, ...languages, ...tools];
+    return { props: { project } };
+}
 
-        return (
-            <main>
-                <h1 className="text-3xl mb-2">{title}</h1>
-                
-            </main>
-        );
+/**
+ * get all possible projects 
+ * so they can be statically rendered
+ */
+export function getStaticPaths(): GetStaticPathsResult {
+    return {
+        paths: Object.keys(Projects).map(key => ({ params: { project: key } })),
+        fallback: false,
     }
 }
 
