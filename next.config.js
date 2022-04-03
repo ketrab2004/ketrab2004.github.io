@@ -3,7 +3,11 @@ const optimizedImages = require("next-optimized-images");
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-    reactStrictMode: true
+    reactStrictMode: true,
+
+    images: {
+        disableStaticImages: true
+    }
 }
 
 module.exports = withPlugins([
