@@ -36,7 +36,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
                     </div>
                     <TagsHolder className="justify-evenly gap-x-2 gap-y-1">
                         {/* split tags array into TagItems */}
-                        {tags.map(tag => <TagItem name={tag} />)}
+                        {tags.map(tag => <TagItem key={tag} name={tag} />)}
                     </TagsHolder>
                 </div>
             </a>
