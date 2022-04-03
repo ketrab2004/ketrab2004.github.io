@@ -16,7 +16,7 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
                 color: ColourFromNumber(textColor),
                 borderColor: ColourFromNumber(borderColor)
             }}>
-            {icon ? <Image className="h-4 pr-1" src={icon} /> : null}
+            {icon ? <Image className="h-4 pr-1" alt={displayName} src={icon} /> : null}
 
             <Link href={to ?? ''}>
                 <a className="text-sm">
