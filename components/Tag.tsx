@@ -18,11 +18,16 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
             }}>
             {icon ? <Image className="h-4 pr-1" alt={displayName} src={icon} /> : null}
 
-            <Link href={to ?? ''}>
+            {to ? // if to is set
+            <Link href={to}> {/* render a link */}
                 <a className="text-sm">
                     {displayName}
                 </a>
-            </Link>
+            </Link> :
+
+            <p className="text-sm"> {/* else render a p */}
+                {displayName}
+            </p>}
         </li>
     );
 }

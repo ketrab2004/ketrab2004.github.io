@@ -11,8 +11,6 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
     const { title, thumbnail, date, /*state,*/ type,system,languages,tools } = project;
     const tags = [type, system, ...languages, ...tools];
 
-    console.log(project);
-
     return (
         <Link href={url} key={url}>
             <a className="group
