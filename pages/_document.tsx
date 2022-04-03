@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
-// import Script from "next/script";
 
 class HTMLDocument extends Document {
     static async getInitialProps(ctx: any) {

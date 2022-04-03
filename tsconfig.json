@@ -19,6 +19,8 @@
         "paths": {
             "~/*": ["./"],
             "@images/*": ["./images/*"],
+            "@styles/*": ["./styles/*"],
+
             "@components": ["./components/module"],
             "@functions": ["./functions/module"],
 
