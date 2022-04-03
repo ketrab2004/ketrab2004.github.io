@@ -5,7 +5,7 @@ export function Error404(): JSX.Element {
         <main>
             <h1 className="text-3xl mb-2">404</h1>
             <p>
-                This page doesn't exist
+                This page doesn&apos;t exist
             </p>
         </main>
     );
