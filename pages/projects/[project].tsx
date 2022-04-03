@@ -3,7 +3,7 @@ import Projects, { IProject } from "@data/projects";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 
 export function ProjectView(params: { project: string }): JSX.Element {
-    const {title/*, thumbnail, date, type, system, languages, tools*/}: IProject = JSON.parse(params.project);
+    const {title/*, thumbnail, date, type, system, languages, tools*/} = JSON.parse(params.project);
     //let tags = [type, system, ...languages, ...tools];
 
     return (
