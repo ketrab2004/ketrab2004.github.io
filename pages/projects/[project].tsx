@@ -4,6 +4,9 @@ import ErrorPage from "next/error";
 import { NextPageContext } from "next";
 
 export class ProjectView extends React.Component<{project: IProject, statusCode?: number}> {
+    // use getInitialProps instead of getStaticProps
+    // because getStaticProps is for server-side rendering
+    // and this site will be client-side rendered
     static async getInitialProps(ctx: NextPageContext): Promise<any> {
         const params: any = ctx.query;
         const project = Projects[params.project ?? ''];
@@ -25,15 +28,6 @@ export class ProjectView extends React.Component<{project: IProject, statusCode?
                 
             </main>
         );
-    }
-}
-
-export async function getStaticPaths(): Promise<{ paths: string[], fallback: boolean }> {
-    return {
-        paths: Object.entries(Projects).map(row => {
-            return row[0];
-        }),
-        fallback: false
     }
 }
 
