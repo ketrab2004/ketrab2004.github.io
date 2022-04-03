@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* Google Analytics - Global site tag (gtag.js) */}
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-9XK6W489R3" />
-        <Script strategy="afterInteractive"
+        <Script id="google analytics" strategy="afterInteractive"
             dangerouslySetInnerHTML={{
                 __html: [
                 "window.dataLayer = window.dataLayer || [];",
