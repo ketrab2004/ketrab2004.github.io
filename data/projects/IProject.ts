@@ -8,7 +8,7 @@ export default interface IProject
     collection?: number,
     state: StateEnum,
     
-    thumbnail: StaticImageData,
+    thumbnail: string,
     title: string,
     date: Date,
 

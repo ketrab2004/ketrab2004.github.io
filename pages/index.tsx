@@ -1,13 +1,16 @@
 import type { NextPage } from "next";
-import Image from "next/image"
 
-import skyCircle2 from "@images/other/SkyCircle2.png";
+import Img from 'react-optimized-image';
+// import skyCircle2 from "@images/other/SkyCircle2.png";
 
 const Home: NextPage = () => {
+    console.log(skyCircle2);
+    
     return (
         <main>
             <h1 className="text-3xl mb-2">Homepage</h1>
-            <Image src={skyCircle2} className="Home-logo animate-spin" alt="logo" />
+            <img src={skyCircle2.src} alt="cool" />
+            {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
             <p>
                 Edit <code>src/App.js</code> and save to reload.
             </p>

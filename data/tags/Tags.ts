@@ -2,8 +2,8 @@ import { default as Tag } from "./TagTypes";
 import ITag from "./ITag";
 
 //#region Image imports
-import paintNetImage from "@images/tag-icons/paint-net.png";
-import mcreatorImage from "@images/tag-icons/mcreator.png";
+// import paintNetImage from "@images/tag-icons/paint-net.png";
+// import mcreatorImage from "@images/tag-icons/mcreator.png";
 //#endregion
 
 // Record<Tag, ITag> = { [key in Tag]: ITag };
@@ -46,10 +46,10 @@ export const Tags: Partial<Record<Tag, Partial<ITag>>> = {
         backgroundColor: 0xE87C0D
     },
     "paint.net": {
-        icon: paintNetImage,
+        icon: "./images/tag-icons/paint-net.png", //paintNetImage,
     },
     mcreator: {
-        icon: mcreatorImage
+        icon: "./images/tag-icons/mcreator.png", //mcreatorImage
     }
 };
 

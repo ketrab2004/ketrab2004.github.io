@@ -4,7 +4,7 @@ export default interface ITag
 {
     displayName: string,
     
-    icon?: StaticImageData;
+    icon?: string, //StaticImageData;
 
     backgroundColor: number,
     borderColor: number,
