@@ -12,7 +12,18 @@ module.exports = withPlugins([
 
         imagesName: "[name].[ext].__[hash]__.[ext]",
 
-        optimizeImagesInDev: true
+        optimizeImagesInDev: true,
+
+        optipng: {
+            interlaced: true
+        },
+        gifsicle: {
+            interlaced: true,
+            optimizationLevel: 2
+        },
+        webp: {
+            metadata: "all"
+        }
     }],
 
 ], nextConfig);
