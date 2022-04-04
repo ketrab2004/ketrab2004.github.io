@@ -7,6 +7,8 @@ const Home: NextPage = () => {
     return (
         <main>
             <h1 className="text-3xl mb-2">Homepage</h1>
+            {/* <img src={ require(`../images${image}?webp`) } alt="cool" className="w-96" /> */}
+            {/* <img src={multipleSizes.src} srcSet={ multipleSizes.srcSet } alt="cool" className="w-96" /> */}
             {/* <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" />
             <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" /> */}
             {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
