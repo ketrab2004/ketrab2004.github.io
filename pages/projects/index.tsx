@@ -1,9 +1,10 @@
 import React from "react";
+import type { NextPage } from "next";
 import { Projects } from "@data/projects";
 import { ProjectItem } from "@components";
 import { useState, useEffect } from "react";
 
-export function ProjectsPage(): JSX.Element {
+export const ProjectsPage: NextPage = () => {
     // declare a stateVariable for the projects
     const [projects, _setProjects] = useState<typeof Projects>(Projects);
 

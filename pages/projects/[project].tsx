@@ -1,8 +1,9 @@
 import React from "react";
+import type { NextPage } from "next";
 import Projects, { IProject } from "@data/projects";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 
-export function ProjectView(params: { project: string }): JSX.Element {
+export const ProjectView: NextPage<{ project: string }> = (params: { project: string }) => {
     const {title/*, thumbnail, date, type, system, languages, tools*/} = JSON.parse(params.project);
     //let tags = [type, system, ...languages, ...tools];
 
