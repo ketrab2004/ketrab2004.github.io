@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import Img from 'react-optimized-image';
-// import skyCircle2 from "@images/other/SkyCircle2.png";
+import skyCircle2 from "@images/other/SkyCircle2.png";
 
 const Home: NextPage = () => {
     console.log(skyCircle2);
