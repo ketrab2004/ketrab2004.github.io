@@ -9,8 +9,8 @@ const Home: NextPage = () => {
     return (
         <main>
             <h1 className="text-3xl mb-2">Homepage</h1>
-            <Img src={skyCircle2} alt="cool" type="project_full" />
-            <Img src={skyCircle2} alt="cool" type="project_item" />
+            <Img src={skyCircle2} className="w-96" alt="cool" type="project_full" />
+            <Img src={skyCircle2} className="w-96" alt="cool" type="project_item" />
             {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
             <p>
                 Edit <code>src/App.js</code> and save to reload.
