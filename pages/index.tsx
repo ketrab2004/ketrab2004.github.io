@@ -1,16 +1,14 @@
 import type { NextPage } from "next";
 
-import Img from 'react-optimized-image';
-import skyCircle2 from "@images/other/SkyCircle2.png";
+// import ExportedImage from "next-image-export-optimizer"; // no typescript definitions :(
+// import skyCircle2 from "@images/other/SkyCircle2.png";
 
 const Home: NextPage = () => {
-    console.log(skyCircle2);
-    
     return (
         <main>
             <h1 className="text-3xl mb-2">Homepage</h1>
-            <Img src={skyCircle2} className="w-96" alt="cool" type="project_full" />
-            <Img src={skyCircle2} className="w-96" alt="cool" type="project_item" />
+            {/* <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" />
+            <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" /> */}
             {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
             <p>
                 Edit <code>src/App.js</code> and save to reload.

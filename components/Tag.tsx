@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 import { GetTagInfo } from "@data/tags";
 import { ColourFromNumber } from "@functions";
@@ -16,7 +16,7 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
                 color: ColourFromNumber(textColor),
                 borderColor: ColourFromNumber(borderColor)
             }}>
-            {icon ? <Image className="h-4 pr-1" alt={displayName} src={icon} /> : null}
+            {icon ? <img className="h-4 pr-1" alt={displayName} src={icon} /> : null}
 
             {to ? // if to is set
             <Link href={to}> {/* render a link */}
