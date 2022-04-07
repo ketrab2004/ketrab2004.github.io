@@ -1,20 +1,20 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 export function NavbarItem({href, children}: {href: string, children?: React.ReactNode}): JSX.Element {
+    const router = useRouter();
+
     return (
         <li className="p-5">
             <Link href={href}>
                 <a
                 className={
                 "p-5 text-black hover:opacity-80 transition-opacity ease-in-out duration-200" // default classes
-                // (isActive ?
-                //     " italic" : // current page classes
-                //     " ") // not current page classes
-                }
-                >
-                
+                + (router.pathname == href ? // if current page
+                    " italic" : // current page classes
+                    '')
+                }>
                     {children}
                 </a>
             </Link>
