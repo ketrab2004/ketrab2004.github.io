@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { Projects } from "@data/projects";
 import { ProjectItem } from "@components";
-import { DefaultSeo, BreadcrumbJsonLd, NextSeo } from "next-seo";
+import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 import { useState, useEffect } from "react";
 
 export const ProjectsPage: NextPage = () => {
