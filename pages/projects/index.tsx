@@ -1,10 +1,15 @@
 import React from "react";
 import type { NextPage } from "next";
+import { useRouter } from 'next/router'
+
 import { Projects } from "@data/projects";
 import { ProjectItem } from "@components";
+import { DefaultSeo, BreadcrumbJsonLd, NextSeo } from "next-seo";
 import { useState, useEffect } from "react";
 
 export const ProjectsPage: NextPage = () => {
+    const router = useRouter();
+
     // declare a stateVariable for the projects
     const [projects, _setProjects] = useState<typeof Projects>(Projects);
 
@@ -23,8 +28,27 @@ export const ProjectsPage: NextPage = () => {
         return () => window.removeEventListener("keydown", onKeyDown);
     })
 
-    return (
-        <main className="px-5">
+    return <>
+        <NextSeo
+            title="Projects"
+            description="A collection of projects from Bartek Oskam"
+        />
+        <BreadcrumbJsonLd
+            itemListElements={
+                Object.keys(projects).map((projectKey, i) => {
+                    return {
+                        position: i + 1,
+                        name: projects[projectKey].title,
+                        item: `/projects/${projectKey}`
+                    };
+                })
+            }
+
+            scriptId="breadcrumb-json-ld"
+            key="JsonLd"
+        />
+
+        <main className="px-5 pb-5">
             <h1 className="text-3xl mb-2">Projects:</h1>
             
             <div className="grid gap-4 xl:gap-5 2xl:gap-7 3xl:gap-12 4xl:gap-36 content-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -36,7 +60,7 @@ export const ProjectsPage: NextPage = () => {
                     null}
             </div>
         </main>
-    );
+    </>;
 }
 
 export default ProjectsPage;
