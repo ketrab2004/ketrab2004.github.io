@@ -1,18 +1,51 @@
 import React from "react";
 import type { NextPage } from "next";
-import Projects, { IProject } from "@data/projects";
 import { GetStaticPropsResult, GetStaticPathsResult } from "next";
+import { NextSeo, ProductJsonLd } from "next-seo";
+import Projects, { IProject } from "@data/projects";
 
 export const ProjectView: NextPage<{ project: string }> = (params: { project: string }) => {
-    const {title/*, thumbnail, date, type, system, languages, tools*/} = JSON.parse(params.project);
-    //let tags = [type, system, ...languages, ...tools];
+    let {title, thumbnail, date, type, system, languages, tools} = JSON.parse(params.project);
+    date = new Date(date); // convert json string to date object
+    const tags = [type, system, ...languages, ...tools];
 
-    return (
+    return <>
+        <NextSeo
+            title={ title }
+            description={ `Project page for \`${title}\`` }
+
+            openGraph={{
+                type: "article",
+                title: title,
+                description: `Project page for \`${title}\``,
+                article: {
+                    publishedTime: date.toISOString(),
+                    section: type, // mod, game, etc.
+                    tags: tags // convert array to string, because multiple tags are only available in version `7.0.2-canary.35`+
+                },
+                images: [
+                    {
+                        url: thumbnail,
+                        alt: title
+                    }
+                ]
+            }}
+            twitter={{ cardType: 'summary_large_image' }} // big image on twitter for the individual project page
+        />
+        <ProductJsonLd
+            productName={ title }
+            description={ `Project page for \`${title}\`` }
+            brand={ type }
+            images={ [thumbnail] }
+            releaseDate={ date.toISOString() }
+            manufacturerName="Bartek Oskam"
+        />
+
         <main>
             <h1 className="text-3xl mb-2">{title}</h1>
             
         </main>
-    );
+    </>;
 }
 
 /**
