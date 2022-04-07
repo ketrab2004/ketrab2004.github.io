@@ -33,11 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                 cardType: "summary"
             }}
             openGraph={{
+                type: "website",
                 site_name: "Bartek Oskam portfolio",
                 title: "Bartek Oskam portfolio",
-                type: "website",
-                description: "A portfolio website for Bartek Oskam",
-
+                description: "A portfolio website for Bartek Oskam"
             }}
         />
         <SocialProfileJsonLd 
@@ -49,6 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 "https://github.com/ketrab2004"
             ]}
             scriptId="social-profile-json-ld"
+            key="JsonLd"
         />
 
         <Components.Navbar />
