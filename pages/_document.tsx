@@ -18,7 +18,7 @@ class HTMLDocument extends Document {
             <body>
                 <Main />
 
-                <NextScript  />
+                <NextScript />
             </body>
         </Html>
         )
