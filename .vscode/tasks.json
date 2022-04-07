@@ -26,6 +26,17 @@
             "problemMatcher": []
         },
         {
+            "label": "Export optimized production build",
+            "type": "shell",
+            "command": "npm run export",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Run production mode",
             "type": "shell",
             "command": "npm run start",
