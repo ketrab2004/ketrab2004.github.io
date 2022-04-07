@@ -21,7 +21,7 @@ export const ProjectView: NextPage<{ project: string }> = (params: { project: st
                 article: {
                     publishedTime: date.toISOString(),
                     section: type, // mod, game, etc.
-                    tags: tags // convert array to string, because multiple tags are only available in version `7.0.2-canary.35`+
+                    tags: tags
                 },
                 images: [
                     {
