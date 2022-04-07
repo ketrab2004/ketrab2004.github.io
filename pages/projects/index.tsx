@@ -1,6 +1,5 @@
 import React from "react";
 import type { NextPage } from "next";
-import { useRouter } from 'next/router'
 
 import { Projects } from "@data/projects";
 import { ProjectItem } from "@components";
@@ -8,8 +7,6 @@ import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 import { useState, useEffect } from "react";
 
 export const ProjectsPage: NextPage = () => {
-    const router = useRouter();
-
     // declare a stateVariable for the projects
     const [projects, _setProjects] = useState<typeof Projects>(Projects);
 
