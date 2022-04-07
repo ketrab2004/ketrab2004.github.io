@@ -1,7 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 
-import { NextSeo } from "next-seo";
+import { NextSeo, SocialProfileJsonLd  } from "next-seo";
 
 export const Contact: NextPage = () => {
     return <>
@@ -21,7 +21,17 @@ export const Contact: NextPage = () => {
                 }
             }}
         />
-        {/* Use the default SocialProfileJsonLd defined in _app */}
+        <SocialProfileJsonLd 
+            type="Person"
+            name="Bartek Oskam"
+            url="https://ketrab2004.github.io/"
+            sameAs={[
+                "https://www.linkedin.com/in/BartekOskam/",
+                "https://github.com/ketrab2004"
+            ]}
+            scriptId="social-profile-json-ld"
+            key="JsonLd"
+        />
 
         <main>
             <h1 className="text-3xl mb-2">Contact me</h1>

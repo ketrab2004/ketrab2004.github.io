@@ -3,7 +3,7 @@ import Script from "next/script";
 import type { AppProps } from "next/app";
 
 import * as Components from "@components";
-import { DefaultSeo, SocialProfileJsonLd } from "next-seo";
+import { DefaultSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return <>
@@ -38,17 +38,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 title: "Bartek Oskam portfolio",
                 description: "A portfolio website for Bartek Oskam"
             }}
-        />
-        <SocialProfileJsonLd 
-            type="Person"
-            name="Bartek Oskam"
-            url="https://ketrab2004.github.io/"
-            sameAs={[
-                "https://www.linkedin.com/in/BartekOskam/",
-                "https://github.com/ketrab2004"
-            ]}
-            scriptId="social-profile-json-ld"
-            key="JsonLd"
         />
 
         <Components.Navbar />
