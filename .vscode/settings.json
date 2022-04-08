@@ -13,6 +13,7 @@
 
         "package-lock.json": true,
         "next-env.d.ts": true,
-        "other-env.d.ts": true
+        "other-env.d.ts": true,
+        "next-sitemap.config.js": true
     }
 }
