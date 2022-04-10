@@ -8,6 +8,10 @@ on:
     branches: [ master ]
     types: [ closed ]
 
+env:
+  IS_LOCAL: false
+  SITE_URL: https://ketrab2004.github.io/
+
 jobs:
   build:
 
