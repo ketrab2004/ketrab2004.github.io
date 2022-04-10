@@ -7,6 +7,7 @@
         "public/.nojekyll": true,
         ".babelrc": true,
         ".eslintrc.json": true,
+        ".github": true,
 
         "node_modules": true,
         "build": true,
