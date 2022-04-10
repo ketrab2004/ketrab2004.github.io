@@ -11,12 +11,14 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
     const {displayName, backgroundColor, textColor, borderColor, icon} = GetTagInfo(name);
 
     return (
-        <li className="inline-flex items-center p-0.5 rounded shadow border-2" style={{
-                backgroundColor: ColourFromNumber(backgroundColor),
-                color: ColourFromNumber(textColor),
-                borderColor: ColourFromNumber(borderColor)
-            }}>
-            {icon ? <img className="h-4 pr-1" alt={displayName} src={icon} /> : null}
+        <li className="inline-flex items-center p-0.5 rounded shadow bg-gray-50 text-gray-500 border border-slate-100"
+            // style={{
+            //     backgroundColor: ColourFromNumber(backgroundColor),
+            //     color: ColourFromNumber(textColor),
+            //     borderColor: ColourFromNumber(borderColor)
+            // }}
+            >
+            {/* {icon ? <img className="h-4 pr-1" alt={displayName} src={icon} /> : null} */}
 
             {to ? // if to is set
             <Link href={to}> {/* render a link */}
