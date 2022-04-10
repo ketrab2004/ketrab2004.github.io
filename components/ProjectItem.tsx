@@ -9,7 +9,7 @@ import { TagItem, TagsHolder } from "@components";
 
 export default function ProjectItem({url, project}: {url: string, project: IProject}): JSX.Element {
     const { title, thumbnail, date, /*state,*/ type,system,languages,tools } = project;
-    const tags = [type, system, ...languages, ...tools];
+    const tags = [...languages, ...tools];
 
     return (
         <Link href={url} key={url}>
@@ -31,6 +31,16 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
                         <h3 className="mb-1 text-xl sm:text-base">{title}</h3>
                         {/* date is string for some reason 😢, so it has to be converted back */}
                         <p>{ formatDate(new Date(date), "d/MM/yyyy") }</p>
+                    </div>
+                    <div className="flex flex-row justify-around text-sm mb-2 text-gray-700">
+                        <span>
+                            Type:
+                            <TagItem name={type} isntInList className="ml-2" />
+                        </span>
+                        <span>
+                            System:
+                            <TagItem name={system} isntInList className="ml-2" />
+                        </span>
                     </div>
                     <TagsHolder className="justify-evenly gap-x-2 gap-y-1">
                         {/* split tags array into TagItems */}
