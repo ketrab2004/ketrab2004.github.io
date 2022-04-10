@@ -12,18 +12,6 @@ import IProject from "./IProject";
 //#endregion
 
 export const Projects: {[key: string]: IProject} = {
-    "cardboard-mod": {
-        state: State.Abandoned,
-        title: "The Cardboard Mod",
-        thumbnail: "./images/projects/mods/cardboard.png", //cardboardModImage,
-        date: new Date("21 May, 2018 @ 12:23"),
-
-        type: "mod",
-        languages: ["no-code"],
-        tools: ["paint.net", "blender"],
-        system: "other",
-    },
-
     "grass-mod": {
         state: State.Completed,
         title: "The Grass Mod",
@@ -36,6 +24,30 @@ export const Projects: {[key: string]: IProject} = {
         system: "minecraft",
     },
 
+    "cardboard-mod": {
+        state: State.Abandoned,
+        title: "The Cardboard Mod",
+        thumbnail: "./images/projects/mods/cardboard.png", //cardboardModImage,
+        date: new Date("21 May, 2018 @ 12:23"),
+
+        type: "mod",
+        languages: ["no-code"],
+        tools: ["paint.net", "blender"],
+        system: "other",
+    },
+    
+        "html5-hangman": {
+            state: State.Completed,
+            title: "HTML5 Hangman game",
+            thumbnail: "./images/projects/html5/hangman.png", // hangmanHtml5Image,
+            date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
+    
+            type: "game",
+            languages: ["html", "css", "js"],
+            tools: ["vscode"],
+            system: "raw html",
+        },
+
     "cannibalism-mod": {
         state: State.Completed,
         title: "The Cannibalism Mod",
@@ -46,18 +58,6 @@ export const Projects: {[key: string]: IProject} = {
         languages: ["no-code"],
         tools: ["paint.net", "blender"],
         system: "other (ingame)",
-    },
-
-    "html5-hangman": {
-        state: State.Completed,
-        title: "HTML5 Hangman game",
-        thumbnail: "./images/projects/html5/hangman.png", // hangmanHtml5Image,
-        date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
-
-        type: "game",
-        languages: ["html", "css", "js"],
-        tools: ["vscode"],
-        system: "raw html",
     },
 
     "roblox-infinite-terrain": {
