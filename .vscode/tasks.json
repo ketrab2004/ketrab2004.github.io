@@ -4,13 +4,57 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run build process",
+            "label": "Run development mode",
+            "type": "shell",
+            "command": "npm run dev",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build optimized production build",
+            "type": "shell",
+            "command": "npm run build",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Export optimized production build",
+            "type": "shell",
+            "command": "npm run export",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run production mode",
             "type": "shell",
             "command": "npm run start",
             "group": "none",
             "presentation": {
                 "reveal": "silent",
                 "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run lint",
+            "type": "shell",
+            "command": "npm run lint",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
             },
             "problemMatcher": []
         },
