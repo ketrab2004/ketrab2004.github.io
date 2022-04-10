@@ -22,10 +22,11 @@ export function NavbarItem({href, children}: {href: string, children?: React.Rea
     );
 }
 
-export function Navbar(): JSX.Element {
+export function Navbar({ children }: React.PropsWithChildren<{}>): JSX.Element {
     return (
         <header className="Navbar font-sans shadow mb-2 bg-white">
             <ul className="list-none flex flex-row flex-nowrap justify-end">
+                {children}
                 <NavbarItem href="/">Home</NavbarItem>
                 <NavbarItem href="/contact">Contact</NavbarItem>
                 <NavbarItem href="/projects">Projects</NavbarItem>
