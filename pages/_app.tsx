@@ -1,11 +1,27 @@
 import "@styles/globals.css";
 import Script from "next/script";
+
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
+
+type NextPageWithLayout = NextPage & {
+    getLayout?: (page: ReactElement) => ReactNode
+}
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout
+}
 
 import * as Components from "@components";
 import { DefaultSeo } from "next-seo";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+    const getLayout = Component.getLayout ?? ((page: ReactElement) => <>
+        <Components.Navbar />
+        {page}
+        {/* navbar */}
+    </>);
+
     return <>
         <DefaultSeo 
             titleTemplate="%s | Bartek Oskam portfolio"
@@ -40,9 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             }}
         />
 
-        <Components.Navbar />
-
-        <Component {...pageProps} />
+        { getLayout( <Component {...pageProps} /> ) }
 
         {/* Google Analytics - Global site tag (gtag.js) */}
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-9XK6W489R3" />
