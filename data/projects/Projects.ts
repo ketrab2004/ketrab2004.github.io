@@ -33,7 +33,7 @@ export const Projects: {[key: string]: IProject} = {
         type: "mod",
         languages: ["no-code"],
         tools: ["paint.net", "blender"],
-        system: "other",
+        system: "other (ingame)",
     },
     
         "html5-hangman": {

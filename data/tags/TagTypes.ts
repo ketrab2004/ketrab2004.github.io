@@ -34,6 +34,16 @@ export type Tool =
     "git gui" |
     "git";
 
+    
+    export type Type =
+    "game" |
+    "plugin" |
+    "library" |
+    "mod" |
+    "app" |
+    "website" |
+    "other";
+
 export type System =
     "unity" |
     "unreal engine" |
@@ -47,15 +57,4 @@ export type System =
     "laravel" |
     "react" |
     "php" |
-    "raw html" |
-    "other";
-
-export type Type =
-    "game" |
-    "plugin" |
-    "library" |
-    "mod" |
-    "app" |
-    "website" |
-    "other";
-
+    "raw html";
