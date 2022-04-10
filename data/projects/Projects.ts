@@ -12,41 +12,17 @@ import IProject from "./IProject";
 //#endregion
 
 export const Projects: {[key: string]: IProject} = {
-    "grass-mod": {
+    "roblox-infinite-terrain": {
         state: State.Completed,
-        title: "The Grass Mod",
-        thumbnail: "./images/projects/mods/grass.png", // grassModImage,
-        date: new Date("10/01/2017 11:19"), // m d y
+        title: "Roblox Infinite Terrain",
+        thumbnail: "./images/projects/roblox/infinite-terrain.png",// infiniteTerrainRobloxImage,
+        date: new Date("6/5/2020"), // m d y
 
-        type: "mod",
-        languages: ["no-code"],
-        tools: ["paint.net", "mcreator"],
-        system: "minecraft",
+        type: "game",
+        languages: ["lua"],
+        tools: ["roblox studio"],
+        system: "roblox",
     },
-
-    "cardboard-mod": {
-        state: State.Abandoned,
-        title: "The Cardboard Mod",
-        thumbnail: "./images/projects/mods/cardboard.png", //cardboardModImage,
-        date: new Date("21 May, 2018 @ 12:23"),
-
-        type: "mod",
-        languages: ["no-code"],
-        tools: ["paint.net", "blender"],
-        system: "other (ingame)",
-    },
-    
-        "html5-hangman": {
-            state: State.Completed,
-            title: "HTML5 Hangman game",
-            thumbnail: "./images/projects/html5/hangman.png", // hangmanHtml5Image,
-            date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
-    
-            type: "game",
-            languages: ["html", "css", "js"],
-            tools: ["vscode"],
-            system: "raw html",
-        },
 
     "cannibalism-mod": {
         state: State.Completed,
@@ -60,17 +36,41 @@ export const Projects: {[key: string]: IProject} = {
         system: "other (ingame)",
     },
 
-    "roblox-infinite-terrain": {
+    "html5-hangman": {
         state: State.Completed,
-        title: "Roblox Infinite Terrain",
-        thumbnail: "./images/projects/roblox/infinite-terrain.png",// infiniteTerrainRobloxImage,
-        date: new Date("6/5/2020"), // m d y
+        title: "HTML5 Hangman game",
+        thumbnail: "./images/projects/html5/hangman.png", // hangmanHtml5Image,
+        date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
 
         type: "game",
-        languages: ["lua"],
-        tools: ["roblox studio"],
-        system: "roblox",
-    }
+        languages: ["html", "css", "js"],
+        tools: ["vscode"],
+        system: "raw html",
+    },
+
+    "cardboard-mod": {
+        state: State.Abandoned,
+        title: "The Cardboard Mod",
+        thumbnail: "./images/projects/mods/cardboard.png", //cardboardModImage,
+        date: new Date("21 May, 2018 @ 12:23"),
+
+        type: "mod",
+        languages: ["no-code"],
+        tools: ["paint.net", "blender"],
+        system: "other (ingame)",
+    },
+
+    "grass-mod": {
+        state: State.Completed,
+        title: "The Grass Mod",
+        thumbnail: "./images/projects/mods/grass.png", // grassModImage,
+        date: new Date("10/01/2017 11:19"), // m d y
+
+        type: "mod",
+        languages: ["no-code"],
+        tools: ["paint.net", "mcreator"],
+        system: "minecraft",
+    },
 };
 
 export default Projects;
