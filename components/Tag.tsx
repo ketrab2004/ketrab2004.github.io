@@ -7,11 +7,20 @@ import { ColourFromNumber } from "@functions";
 
 import { Language, Tool, System, Type } from "@data/tags";
 
-export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: string}): JSX.Element {
+interface ITagItemProps {
+    name: Language|Tool|System|Type,
+    to?: string,
+    className?: string,
+    isntInList?: boolean
+}
+
+export function TagItem({name, to, className, isntInList}: ITagItemProps): JSX.Element {
     const {displayName, backgroundColor, textColor, borderColor, icon} = GetTagInfo(name);
 
+    const Item = isntInList ? "span" : "li";
+
     return (
-        <li className="inline-flex items-center p-0.5 rounded shadow bg-gray-50 text-gray-500 border border-slate-100"
+        <Item className={`inline-flex items-center p-0.5 rounded shadow bg-gray-50 text-gray-500 border border-slate-100 ${className ?? ''}`}
             // style={{
             //     backgroundColor: ColourFromNumber(backgroundColor),
             //     color: ColourFromNumber(textColor),
@@ -30,7 +39,7 @@ export function TagItem({name, to}: {name: Language|Tool|System|Type, to?: strin
             <p className="text-sm"> {/* else render a p */}
                 {displayName}
             </p>}
-        </li>
+        </Item>
     );
 }
 
