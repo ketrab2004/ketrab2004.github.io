@@ -46,7 +46,7 @@ jobs:
       with:
         publish_dir: ./out
         github_token: ${{ secrets.GH_DEPLOY_ACTION_TOKEN }}
-        
+        commit_message: \#${{ github.event.number }}:: ${{ github.event.pull_request.title }} Deploy
 
     # - name: Deploy to github-pages
     #   run: |
