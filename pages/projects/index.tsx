@@ -92,8 +92,12 @@ ProjectsPage.getLayout = (page: ReactElement) => {
     return (
         <SearchContext.Provider value={{projects: applySearch(), search}}>
             <Navbar>
-                <form className="justify-center" onSubmit={doSearch}>
-                    <input name="search" />
+                <form className="flex items-center font-nunito text-sm ml-4" onSubmit={doSearch}>
+                    <input name="search" className="rounded-md border-black border p-1 mr-2" />
+                    <button className="
+                        rounded-md bg-sky-600 px-3 py-2 transition-colors text-white
+                        hover:bg-blue-700
+                        ring-blue-600 ring-opacity-25 active:ring-2" type="button">Filters</button>
                 </form>
             </Navbar>
             {page}
