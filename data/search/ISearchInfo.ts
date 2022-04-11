@@ -13,6 +13,9 @@ export interface ISearchInfo {
 
     order?: OrderEnum,
 
+    beforeDate?: Date,
+    afterDate?: Date,
+
     languages?: ISpecificSearchInfo & {
         tags: Language[]
     }
