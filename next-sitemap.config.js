@@ -19,7 +19,12 @@ module.exports = {
         policies: [
             {
                 userAgent: '*',
-                allow: '/'
+                disallow: '/',
+                allow: [
+                    '/$', // the root page (nothing after the slash)
+                    '/contact$', // the contact page (nothing after the slash)
+                    '/projects', // the projects page (with stuff after the slash)
+                ]
             }
         ]
     },
