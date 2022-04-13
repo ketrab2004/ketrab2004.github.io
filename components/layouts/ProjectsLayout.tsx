@@ -7,7 +7,7 @@ import { ISearchInfo } from "@data/search";
 export default function ProjectsLayout(page: ReactElement) {
     const [search, _setSearch] = useState<ISearchInfo>(useSearchContext().search);
 
-    function applySearch(): typeof Projects {
+    const applySearch = (): typeof Projects => {
         let toReturn = {...Projects}; // copy (not deep), so delete doesn't change Projects
 
         if (search.query == "bb") delete toReturn["cardboard-mod"];
@@ -15,7 +15,7 @@ export default function ProjectsLayout(page: ReactElement) {
         return toReturn;
     }
 
-    function doSearch(event: React.FormEvent<HTMLFormElement>) {
+    const doSearch = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // prevent submitting form
     
         _setSearch({...search, query: "bb"});
