@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import type { NextPage } from "next";
 import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 
@@ -7,13 +7,8 @@ import { useSearchContext } from "@context";
 import { ProjectsLayout } from "@layouts";
 
 export const ProjectsPage: NextPage & { getLayout: (page: ReactElement) => JSX.Element } = () => {
-    // declare a stateVariable for the projects
-    // const [projects, _setProjects] = useState<typeof Projects>(Projects);
     const ctx = useSearchContext();
     const projects = ctx.projects;
-
-    // console.log(ctx);
-    
 
     const onKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
