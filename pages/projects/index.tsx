@@ -1,16 +1,15 @@
-import React, { ReactElement, createContext, useContext } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import type { NextPage } from "next";
-
-import { Projects } from "@data/projects";
-import type { ISearchInfo } from "@data/search";
-import { ProjectItem, Navbar } from "@components";
 import { NextSeo, BreadcrumbJsonLd } from "next-seo";
-import { useState, useEffect } from "react";
 
-export const ProjectsPage: NextPage & { getLayout: Function } = () => {
+import { ProjectItem } from "@components";
+import { useSearchContext } from "@context";
+import { ProjectsLayout } from "@layouts";
+
+export const ProjectsPage: NextPage & { getLayout: (page: ReactElement) => JSX.Element } = () => {
     // declare a stateVariable for the projects
     // const [projects, _setProjects] = useState<typeof Projects>(Projects);
-    const ctx = useContext(SearchContext);
+    const ctx = useSearchContext();
     const projects = ctx.projects;
 
     // console.log(ctx);
@@ -66,44 +65,6 @@ export const ProjectsPage: NextPage & { getLayout: Function } = () => {
     </>;
 }
 
-// create context for search data and projects list with default data
-const SearchContext = createContext({projects: Projects, search: {query: "", highlighted: true} as ISearchInfo});
-
-ProjectsPage.getLayout = (page: ReactElement) => {
-    const [search, _setSearch] = useState<ISearchInfo>(useContext(SearchContext).search);
-
-    function applySearch(): typeof Projects {
-        let toReturn = {...Projects}; // copy (not deep), so delete doesn't change Projects
-
-        if (search.query == "bb") delete toReturn["cardboard-mod"];
-
-        return toReturn;
-    }
-
-    function doSearch(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault(); // prevent submitting form
-    
-        _setSearch({...search, query: "bb"});
-
-        console.log(event);
-        console.log(event.target);
-    }
-
-    return (
-        <SearchContext.Provider value={{projects: applySearch(), search}}>
-            <Navbar>
-                <form className="flex items-center font-nunito text-sm ml-4" onSubmit={doSearch}>
-                    <input name="search" className="rounded-md border-black border p-1 mr-2" />
-                    <button className="
-                        rounded-md bg-sky-600 px-3 py-2 transition-colors text-white
-                        hover:bg-blue-700
-                        ring-blue-600 ring-opacity-25 active:ring-2" type="button">Filters</button>
-                </form>
-            </Navbar>
-            {page}
-            {/* footer */}
-        </SearchContext.Provider>
-    );
-}
+ProjectsPage.getLayout = ProjectsLayout;
 
 export default ProjectsPage;
