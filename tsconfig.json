@@ -22,6 +22,7 @@
             "@styles/*": ["./styles/*"],
 
             "@components": ["./components/module"],
+            "@layouts": ["./components/layouts/module"],
             "@functions": ["./functions/module"],
 
             "@data/tags": ["./data/tags/module"],
