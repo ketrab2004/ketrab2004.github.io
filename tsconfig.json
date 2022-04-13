@@ -28,6 +28,7 @@
             "@data/tags": ["./data/tags/module"],
             "@data/projects": ["./data/projects/module"],
             "@data/search": ["./data/search/module"],
+            "@context": ["./data/context/module"],
             "@data/*": ["./data/*"],
 
             "@tests/*": ["./tests/*"]
