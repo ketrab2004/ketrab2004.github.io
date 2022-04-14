@@ -2,9 +2,9 @@ import { createContext, useContext } from "react";
 import Projects, { IProject } from "@data/projects";
 import { ISearchInfo } from "@data/search";
 
-export type SortableProjectList = (IProject & {key: string})[]; // array of IProjects, but with keys
+export type IterableProject = (IProject & {key: string}); // IProjects, but with keys
 
-export function getDefaultProjects(): SortableProjectList {
+export function getDefaultProjects(): IterableProject[] {
     return Array.from(
         Object.entries(Projects), // entries in Projects [[key, value], [key, value], etc.]
         ([key, project]) => { // map object into sortable array (and add the keys to the values)
