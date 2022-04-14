@@ -12,6 +12,7 @@ export interface ISearchInfo {
     highlighted?: boolean,
 
     order?: OrderEnum,
+    orderAsc?: boolean,
 
     beforeDate?: Date,
     afterDate?: Date,
