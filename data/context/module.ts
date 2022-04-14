@@ -1,7 +1,10 @@
-import SearchContext, { useSearchContext } from "./SearchContext";
+import SearchContext, { useSearchContext, getDefaultProjects as getSCProjects, SortableProjectList as SCProjectList } from "./SearchContext";
 
-
+export type {
+    SCProjectList
+}
 export {
     SearchContext,
-    useSearchContext
+    useSearchContext,
+    getSCProjects
 }
