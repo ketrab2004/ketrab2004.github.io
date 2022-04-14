@@ -1,7 +1,9 @@
 import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
 import { SearchContext, useSearchContext, getSCProjects, SCProject } from "@context";
-import { ISearchInfo, ISearchHolder } from "@data/search";
+import { ISearchInfo, ISearchHolder, OrderEnum } from "@data/search";
+
+import { distance as levenshteinDistance } from "fastest-levenshtein";
 
 export default function ProjectsLayout(page: ReactElement) {
     const searchContext = useSearchContext();
@@ -14,8 +16,37 @@ export default function ProjectsLayout(page: ReactElement) {
             } as ISearchHolder;
         });
 
-        if (search.query == "bb") toReturn.shift();
+        let scoreFunction: (project: ISearchHolder) => number;
+        switch (search.order ?? OrderEnum.NAME) { // apply search scores based on chosen order
+            case OrderEnum.DATE:
+                scoreFunction = (project: ISearchHolder) => project.project.date.getTime();
+                break;
 
+            case OrderEnum.NAME:
+            default: // default is order by name
+                scoreFunction = search.query == '' ? // if no query
+                    () => 0 : // always return 0
+                    (project: ISearchHolder) => { // when there is a query, return lowercased weighted levenshtein distance
+                        return levenshteinDistance(search.query.toLowerCase(), project.project.title.toLowerCase())
+                        / Math.max(search.query.length, project.project.title.length);
+                    }
+                break;
+        }
+
+        // apply chosen scoreFunction
+        toReturn.forEach((item) => {
+            item.relevance = scoreFunction(item);
+        });
+
+        // sort by relevance
+        toReturn.sort(
+            search.orderAsc ?? false ?
+                (a, b) => (b.relevance ?? 0) - (a.relevance ?? 0) : // ascending
+                (a, b) => (a.relevance ?? 0) - (b.relevance ?? 0) // descending
+        );
+        
+        console.log(toReturn);
+        
         return toReturn.map((projectHolder) => {
             return projectHolder.project;
         });
