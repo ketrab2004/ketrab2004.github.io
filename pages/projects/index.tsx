@@ -32,11 +32,11 @@ export const ProjectsPage: NextPage & { getLayout: (page: ReactElement) => JSX.E
         />
         <BreadcrumbJsonLd
             itemListElements={
-                Object.keys(projects).map((projectKey, i) => {
+                projects.map((project, i) => {
                     return {
                         position: i + 1,
-                        name: projects[projectKey].title,
-                        item: `/projects/${projectKey}`
+                        name: project.title,
+                        item: `/projects/${project.key}`
                     };
                 })
             }
@@ -50,9 +50,9 @@ export const ProjectsPage: NextPage & { getLayout: (page: ReactElement) => JSX.E
             
             <div className="grid gap-4 xl:gap-5 2xl:gap-7 3xl:gap-12 4xl:gap-36 content-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {/* loop through Projects and render them inside ProjectItems */}
-                {Object.keys(projects).map(key => <ProjectItem key={key} url={`/projects/${key}`} project={projects[key]} />)}
+                {projects.map(project => <ProjectItem key={project.key} url={`/projects/${project.key}`} project={project} />)}
 
-                {Object.keys(projects).length <= 0 ? // if no projects found
+                {projects.length <= 0 ? // if no projects found
                     <p>No results found...</p> :
                     null}
             </div>
