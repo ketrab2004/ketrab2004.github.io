@@ -1,27 +1,29 @@
 import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
-import { SearchContext, useSearchContext } from "@context";
-import Projects from "@data/projects";
+import { SearchContext, useSearchContext, getSCProjects, SCProjectList } from "@context";
 import { ISearchInfo } from "@data/search";
 
 export default function ProjectsLayout(page: ReactElement) {
-    const [search, _setSearch] = useState<ISearchInfo>(useSearchContext().search);
+    const searchContext = useSearchContext();
+    const [search, _setSearch] = useState<ISearchInfo>(searchContext.search);
 
-    const applySearch = (): typeof Projects => {
-        let toReturn = {...Projects}; // copy (not deep), so delete doesn't change Projects
+    const applySearch = (): SCProjectList => {
+        let toReturn = getSCProjects();
 
-        if (search.query == "bb") delete toReturn["cardboard-mod"];
+        if (search.query == "bb") toReturn.shift();
 
         return toReturn;
     }
 
     const doSearch = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // prevent submitting form
-    
-        _setSearch({...search, query: "bb"});
 
-        console.log(event);
-        console.log(event.target);
+        const eventForm = event.target as HTMLElement; // cast to HTMLElement, so you can use querySelector
+    
+        _setSearch({...search, // keep old search info
+            query: (eventForm.querySelector("input[name=search]") as HTMLInputElement) // cast to HTMLInputElement so you can use value
+                    .value ?? '' // value or empty string
+        });
     }
 
     return (
