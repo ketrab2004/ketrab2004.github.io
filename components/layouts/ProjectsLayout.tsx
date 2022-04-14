@@ -1,18 +1,24 @@
 import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
-import { SearchContext, useSearchContext, getSCProjects, SCProjectList } from "@context";
-import { ISearchInfo } from "@data/search";
+import { SearchContext, useSearchContext, getSCProjects, SCProject } from "@context";
+import { ISearchInfo, ISearchHolder } from "@data/search";
 
 export default function ProjectsLayout(page: ReactElement) {
     const searchContext = useSearchContext();
     const [search, _setSearch] = useState<ISearchInfo>(searchContext.search);
 
-    const applySearch = (): SCProjectList => {
-        let toReturn = getSCProjects();
+    const applySearch = (): SCProject[] => {
+        let toReturn = getSCProjects().map((project) => { // map SCProject[] to ISearchHolder[]
+            return {
+                project: project,
+            } as ISearchHolder;
+        });
 
         if (search.query == "bb") toReturn.shift();
 
-        return toReturn;
+        return toReturn.map((projectHolder) => {
+            return projectHolder.project;
+        });
     }
 
     const doSearch = (event: React.FormEvent<HTMLFormElement>) => {
