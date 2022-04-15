@@ -4,17 +4,18 @@ import { distance as levenshteinDistance } from "fastest-levenshtein";
 
 export function applySearch(projects: SCProject[], search: ISearchInfo): SCProject[] {
     let toReturn = projects.map((project) => { // map SCProject[] to ISearchHolder[]
-        return {
-            project: project,
-        } as ISearchHolder;
+        return { project: project } as ISearchHolder;
     });
 
-    if ((search.order ?? OrderEnum.NAME) == OrderEnum.NAME && search.query.length <= 0) { // if ordering by name, and no query given
+    // if ordering by name, and no query given
+    if ((search.order ?? OrderEnum.NAME) == OrderEnum.NAME && search.query.length <= 0) {
         search.order = OrderEnum.DATE; // order by date instead
     }
 
     let scoreFunction: (project: ISearchHolder) => number;
-    switch (search.order ?? OrderEnum.NAME) { // set scoreFunction based on chosen order (default is name)
+
+    // set scoreFunction based on chosen order (default is name)
+    switch (search.order ?? OrderEnum.NAME) {
         case OrderEnum.DATE:
             scoreFunction = (project: ISearchHolder) => project.project.date.getTime();
             break;
