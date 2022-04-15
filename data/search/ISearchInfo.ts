@@ -17,7 +17,8 @@ export interface ISearchInfo {
     beforeDate?: Date,
     afterDate?: Date,
 
-
+    type?: ISpecificSearchInfo<Type>,
+    system?: ISpecificSearchInfo<System>,
     languages?: ISpecificSearchInfo<Language>
     tools?: ISpecificSearchInfo<Tool>
 }
