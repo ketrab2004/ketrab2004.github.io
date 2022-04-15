@@ -23,6 +23,8 @@ export default function ProjectsLayout(page: ReactElement) {
     const searchContext = useSearchContext();
     const [search, _setSearch] = useState<ISearchInfo>(searchContext.search);
 
+    console.log(search);
+
     const doSearch = (event: React.FormEvent<IFormInfo>) => {
         event.preventDefault(); // prevent submitting form
 
@@ -38,9 +40,6 @@ export default function ProjectsLayout(page: ReactElement) {
             afterDate: elements.afterDate.valueAsDate ?? undefined,
             beforeDate: elements.beforeDate.valueAsDate ?? undefined
         });
-
-        console.log(search);
-        
     }
 
     // toggle the filter element
