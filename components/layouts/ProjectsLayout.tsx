@@ -3,6 +3,7 @@ import { Navbar } from "@components";
 import { SearchContext, useSearchContext, getSCProjects } from "@context";
 import { ISearchInfo, OrderEnum } from "@data/search";
 import { applySearch } from "@functions";
+import { format as formatDate } from "date-fns";
 
 export default function ProjectsLayout(page: ReactElement) {
     const searchContext = useSearchContext();
@@ -39,7 +40,7 @@ export default function ProjectsLayout(page: ReactElement) {
                     <div className="relative hidden" id="search-filters">
                         <div className="flex flex-col
                             absolute left-0 z-10
-                            w-full mt-2 py-2 pl-4
+                            w-full mt-2 p-2 pl-4
                             bg-white shadow-md">
 
                             <div className="pb-2"> {/* show highlighted projects only */}
@@ -47,19 +48,36 @@ export default function ProjectsLayout(page: ReactElement) {
                                 <label htmlFor="highlighted-only" className="pl-2 select-none">Show highlighted only</label>
                             </div>
 
-                            <div className="flex flex-row justify-around pb-2">
+                            {/* ordering */}
+                            <div className="flex flex-row pb-2">
                                 <div className="flex flex-col justify-start"> {/* choose order by */}
                                     <label htmlFor="order-by">Order by</label>
                                     <select className="border rounded" id="order-by" name="order-by">
                                         {Object.keys(OrderEnum).map(key => <option value={key}>{key.toLowerCase()}</option>)}
                                     </select>
                                 </div>
-                                <div className="flex flex-col justify-start"> {/* choose order by direction */}
+                                <div className="flex flex-col justify-start ml-4"> {/* choose order by direction */}
                                     <label htmlFor="is-asc">Direction</label>
                                     <select className="border rounded" id="is-asc" name="is-asc">
                                         <option value="false">Descending</option>
                                         <option value="true">Ascending</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            {/* date filtering */}
+                            <div className="flex flex-row justify-between pb-2">
+                                <div className="flex flex-col justify-start">
+                                    <label htmlFor="date-after">After</label>
+                                    <input type="date" id="date-after" name="date-after" className="border rounded max-w-[7rem]"
+                                        min={new Date("2016").toLocaleDateString("en-ca") /* https://stackoverflow.com/a/49916376 */}
+                                        max={new Date().toLocaleDateString("en-ca")}/>
+                                </div>
+                                <div className="flex flex-col justify-start">
+                                    <label htmlFor="date-before">Before</label>
+                                    <input type="date" id="date-before" name="date-before" className="border rounded max-w-[7rem]"
+                                        min={new Date("2016").toLocaleDateString("en-ca")}
+                                        max={new Date().toLocaleDateString("en-ca")} />
                                 </div>
                             </div>
                         </div>
