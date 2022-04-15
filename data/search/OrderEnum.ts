@@ -1,5 +1,6 @@
 export enum OrderEnum {
-    NAME = "NAME", // order by levenshtein distance
+    SEARCH = "SEARCH", // order by levenshtein distance
+    NAME = "NAME", // alphabetically
     DATE = "DATE" // order by 'creation' date
 }
 

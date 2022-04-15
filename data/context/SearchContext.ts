@@ -25,7 +25,7 @@ export const SearchContext = createContext({
         query: "",
         highlighted: true,
 
-        order: OrderEnum.NAME,
+        order: OrderEnum.SEARCH,
         orderAsc: false,
 
         type: {

@@ -8,23 +8,31 @@ export function applySearch(projects: SCProject[], search: ISearchInfo): SCProje
     });
 
     //#region Ordering
-    let searchOrder = search.order ?? OrderEnum.NAME;
+    let searchOrder = search.order ?? OrderEnum.SEARCH;
 
-    // if ordering by name, and no query given
-    if (searchOrder == OrderEnum.NAME && search.query.length <= 0) {
+    // if ordering by search relevance, and no query given
+    if (searchOrder == OrderEnum.SEARCH && search.query.length <= 0) {
         searchOrder = OrderEnum.DATE; // order by date instead
     }
 
-    let scoreFunction: (project: ISearchHolder) => number;
+    let scoreFunction!: (project: ISearchHolder) => number;
+    let sortFunction: (a: ISearchHolder, b: ISearchHolder) => number =
+        search.orderAsc ?? false ? // sort ascending if orderAsc is true
+            (a, b) => (b.relevance ?? 0) - (a.relevance ?? 0) : // ascending
+            (a, b) => (a.relevance ?? 0) - (b.relevance ?? 0); // descending
 
     // set scoreFunction based on chosen order (default is name)
     switch (searchOrder) {
-        case OrderEnum.DATE:
-            scoreFunction = (project: ISearchHolder) => -project.project.date.getTime(); // negative so that the newest projects are first (descending order)
+        case OrderEnum.NAME:
+            // replace sortFunction instead of scoreFunction,
+            // because there is no efficient way to convert strings to numbers (that correctly sort)
+            sortFunction =
+                search.orderAsc ?? false ? // sort ascending if orderAsc is true
+                    (a: ISearchHolder, b: ISearchHolder) => b.project.title.localeCompare(a.project.title) :
+                    (a: ISearchHolder, b: ISearchHolder) => a.project.title.localeCompare(b.project.title);
             break;
 
-        case OrderEnum.NAME:
-        default: // default is order by name
+        case OrderEnum.SEARCH:
             scoreFunction = (project: ISearchHolder) => { // lowercased weighted levenshtein distance
                 const query = search.query.toLowerCase();
                 const title = project.project.title.toLowerCase();
@@ -33,19 +41,20 @@ export function applySearch(projects: SCProject[], search: ISearchInfo): SCProje
                 / Math.max(query.length, title.length); // weigh the distance
             }
             break;
+
+        case OrderEnum.DATE:
+        default: // default is order by search relevance
+            scoreFunction = (project: ISearchHolder) => -project.project.date.getTime(); // negative so that the newest projects are first (descending order)
+            break;
     }
 
-    // apply chosen scoreFunction on each item
-    toReturn.forEach((item) => {
+    // apply chosen scoreFunction on each item (only if scoreFunction is set)
+    if (scoreFunction !== undefined) toReturn.forEach((item) => {
         item.relevance = scoreFunction(item);
     });
 
-    // sort by relevance
-    toReturn.sort(
-        search.orderAsc ?? false ? // sort ascending if orderAsc is true
-            (a, b) => (b.relevance ?? 0) - (a.relevance ?? 0) : // ascending
-            (a, b) => (a.relevance ?? 0) - (b.relevance ?? 0) // descending
-    );
+    // sort
+    toReturn.sort(sortFunction);
     //#endregion
 
     console.log(toReturn);
