@@ -7,6 +7,7 @@ import GetTextColourForBackground from "./GetTextColourForBackground";
 import HSLToRGB from "./HSLToRGB";
 import applySearch from "./applySearch";
 import orderSearchHolders from "./orderSearchHolders";
+import filterSearchHolders, { matchesTags } from "./filterSearchHolders";
 
 export {
     CapitalizeWords,
@@ -21,5 +22,7 @@ export {
     HSLToRGB,
 
     applySearch,
-    orderSearchHolders
+    orderSearchHolders,
+    filterSearchHolders,
+        matchesTags
 };
