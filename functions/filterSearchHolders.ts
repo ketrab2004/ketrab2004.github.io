@@ -30,7 +30,7 @@ export function filterSearchHolders(projects: ISearchHolder[], search: ISearchIn
     // filter projects
     projects.forEach((projectHolder) => {
         // check if it matches the highlightedOnly option
-        if (search.highlighted && !projectHolder.project.highlighted) return;
+        // if (search.highlighted && !(projectHolder.project.highlighted ?? false)) return; //TODO uncomment this, when highlighted projects are added
 
         // check if it matches the project type tag
         // TagSearchTypeEnum is OR by default, because a project can only have 1 type
@@ -54,7 +54,7 @@ export function filterSearchHolders(projects: ISearchHolder[], search: ISearchIn
         toReturn.push(projectHolder);
     });
 
-    return projects;
+    return toReturn;
 }
 
 export default filterSearchHolders;
