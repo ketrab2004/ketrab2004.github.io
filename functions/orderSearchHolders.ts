@@ -1,7 +1,7 @@
 import { ISearchHolder, ISearchInfo, OrderEnum } from "@data/search";
 import { distance as levenshteinDistance } from "fastest-levenshtein";
 
-export function orderSearchHolders(toReturn: ISearchHolder[], search: ISearchInfo): ISearchHolder[] {
+export function orderSearchHolders(projects: ISearchHolder[], search: ISearchInfo): ISearchHolder[] {
     let searchOrder = search.order ?? OrderEnum.SEARCH;
 
     // if ordering by search relevance, and no query given
@@ -37,17 +37,17 @@ export function orderSearchHolders(toReturn: ISearchHolder[], search: ISearchInf
     }
 
     // apply chosen scoreFunction on each item (only if scoreFunction is set)
-    if (scoreFunction !== undefined) toReturn.forEach((item) => {
+    if (scoreFunction !== undefined) projects.forEach((item) => {
         item.relevance = scoreFunction(item);
     });
 
-    toReturn.sort(
+    projects.sort(
         search.orderAsc ?? false ? // if order is ascending
         (a, b) => -sortFunction(a, b) : // make it ascending by making the sortFunction negative
         sortFunction // otherwise just use the sortFunction
     );
 
-    return toReturn;
+    return projects;
 }
 
 export default orderSearchHolders;
