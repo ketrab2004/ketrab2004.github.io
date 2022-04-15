@@ -1,4 +1,4 @@
-import type { default as Tag, Language, Tool, System, Type } from "./TagTypes";
+import Tag, { Language,Languages, Tool,Tools, System,Systems, Type,Types } from "./TagTypes";
 import ITag from "./ITag";
 import Tags from "./Tags";
 import GetTagInfo from "./GetTagInfo";
@@ -15,5 +15,10 @@ export type {
 }
 export {
     Tags,
-    GetTagInfo
+    GetTagInfo,
+
+    Languages,
+    Tools,
+    Systems,
+    Types
 };
