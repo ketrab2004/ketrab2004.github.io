@@ -60,18 +60,18 @@ export default function ProjectsLayout(page: ReactElement) {
                     </div>
 
                     <div className="relative hidden" id="search-filters">
-                        <div className="flex flex-col
+                        <div className="flex flex-col space-y-3
                             absolute left-0 z-10
                             w-full mt-2 p-2 pl-4
                             bg-white shadow-md">
 
-                            <div className="pb-2"> {/* show highlighted projects only */}
+                            <div> {/* show highlighted projects only */}
                                 <input type="checkbox" id="highlightedOnly" name="highlightedOnly" defaultChecked />
                                 <label htmlFor="highlightedOnly" className="pl-2 select-none">Show highlighted only</label>
                             </div>
 
                             {/* ordering */}
-                            <div className="flex flex-row pb-2">
+                            <div className="flex flex-row">
                                 <div className="flex flex-col justify-start"> {/* choose order by */}
                                     <label htmlFor="orderBy">Order by</label>
                                     <select className="border rounded" id="orderBy" name="orderBy">
@@ -88,7 +88,7 @@ export default function ProjectsLayout(page: ReactElement) {
                             </div>
 
                             {/* date filtering */}
-                            <div className="flex flex-row justify-between pb-2">
+                            <div className="flex flex-row justify-between">
                                 <div className="flex flex-col justify-start">
                                     <label htmlFor="afterDate">After</label>
                                     <input type="date" id="afterDate" name="afterDate" className="border rounded max-w-min"
