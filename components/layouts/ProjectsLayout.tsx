@@ -69,13 +69,13 @@ export default function ProjectsLayout(page: ReactElement) {
                             <div className="flex flex-row justify-between pb-2">
                                 <div className="flex flex-col justify-start">
                                     <label htmlFor="date-after">After</label>
-                                    <input type="date" id="date-after" name="date-after" className="border rounded max-w-[7rem]"
+                                    <input type="date" id="date-after" name="date-after" className="border rounded max-w-min"
                                         min={new Date("2016").toLocaleDateString("en-ca") /* https://stackoverflow.com/a/49916376 */}
                                         max={new Date().toLocaleDateString("en-ca")}/>
                                 </div>
                                 <div className="flex flex-col justify-start">
                                     <label htmlFor="date-before">Before</label>
-                                    <input type="date" id="date-before" name="date-before" className="border rounded max-w-[7rem]"
+                                    <input type="date" id="date-before" name="date-before" className="border rounded max-w-min"
                                         min={new Date("2016").toLocaleDateString("en-ca")}
                                         max={new Date().toLocaleDateString("en-ca")} />
                                 </div>
