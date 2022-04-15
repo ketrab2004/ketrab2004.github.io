@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import Projects, { IProject } from "@data/projects";
-import { ISearchInfo } from "@data/search";
+import { ISearchInfo, ISpecificSearchInfo, OrderEnum, TagSearchTypeEnum } from "@data/search";
+import { Language, System, Tool, Type } from "@data/tags";
 
 export type IterableProject = (IProject & {key: string}); // IProjects, but with keys
 
@@ -22,7 +23,27 @@ export const SearchContext = createContext({
 
     search: {
         query: "",
-        highlighted: true
+        highlighted: true,
+
+        order: OrderEnum.NAME,
+        orderAsc: false,
+
+        type: {
+            tags: [],
+            mode: TagSearchTypeEnum.OR
+        } as ISpecificSearchInfo<Type>,
+        system: {
+            tags: [],
+            mode: TagSearchTypeEnum.OR
+        } as ISpecificSearchInfo<System>,
+        languages: {
+            tags: [],
+            mode: TagSearchTypeEnum.OR
+        } as ISpecificSearchInfo<Language>,
+        tools: {
+            tags: [],
+            mode: TagSearchTypeEnum.OR
+        } as ISpecificSearchInfo<Tool>
     } as ISearchInfo
 });
 
