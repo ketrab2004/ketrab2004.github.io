@@ -16,20 +16,14 @@ export function applySearch(projects: SCProject[], search: ISearchInfo): SCProje
     }
 
     let scoreFunction!: (project: ISearchHolder) => number;
-    let sortFunction: (a: ISearchHolder, b: ISearchHolder) => number =
-        search.orderAsc ?? false ? // sort ascending if orderAsc is true
-            (a, b) => (b.relevance ?? 0) - (a.relevance ?? 0) : // ascending
-            (a, b) => (a.relevance ?? 0) - (b.relevance ?? 0); // descending
+    let sortFunction = (a: ISearchHolder, b: ISearchHolder) => (a.relevance ?? 0) - (b.relevance ?? 0); // descending
 
     // set scoreFunction based on chosen order (default is name)
     switch (searchOrder) {
         case OrderEnum.NAME:
             // replace sortFunction instead of scoreFunction,
             // because there is no efficient way to convert strings to numbers (that correctly sort)
-            sortFunction =
-                search.orderAsc ?? false ? // sort ascending if orderAsc is true
-                    (a: ISearchHolder, b: ISearchHolder) => b.project.title.localeCompare(a.project.title) :
-                    (a: ISearchHolder, b: ISearchHolder) => a.project.title.localeCompare(b.project.title);
+            sortFunction = (a: ISearchHolder, b: ISearchHolder) => a.project.title.localeCompare(b.project.title);
             break;
 
         case OrderEnum.SEARCH:
@@ -54,7 +48,11 @@ export function applySearch(projects: SCProject[], search: ISearchInfo): SCProje
     });
 
     // sort
-    toReturn.sort(sortFunction);
+    toReturn.sort(
+        search.orderAsc ?? false ? // if order is ascending
+        (a, b) => -sortFunction(a, b) : // make it ascending by making the sortFunction negative
+        sortFunction // otherwise just use the sortFunction
+    );
     //#endregion
 
     console.log(toReturn);
