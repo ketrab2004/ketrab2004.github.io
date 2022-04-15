@@ -1,9 +1,9 @@
-import { Language, Tool } from "@data/tags";
+import { Type, System, Language, Tool } from "@data/tags";
 import OrderEnum from "./OrderEnum";
 import TagSearchTypeEnum from "./TagSearchTypeEnum";
 
-export interface ISpecificSearchInfo {
-    tags: string[],
+export interface ISpecificSearchInfo<T> {
+    tags: T[],
     mode?: TagSearchTypeEnum
 }
 
@@ -17,12 +17,9 @@ export interface ISearchInfo {
     beforeDate?: Date,
     afterDate?: Date,
 
-    languages?: ISpecificSearchInfo & {
-        tags: Language[]
-    }
-    tools?: ISpecificSearchInfo & {
-        tags: Tool[]
-    }
+
+    languages?: ISpecificSearchInfo<Language>
+    tools?: ISpecificSearchInfo<Tool>
 }
 
 export default ISearchInfo;
