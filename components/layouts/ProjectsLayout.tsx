@@ -43,9 +43,7 @@ export default function ProjectsLayout(page: ReactElement) {
     }
 
     // toggle the filter element
-    const toggleFilter = () => {
-        document.getElementById("search-filters")?.classList.toggle("hidden");
-    }
+    const toggleFilter = () => document.getElementById("search-filters")?.classList.toggle("hidden");
 
     return (
         <SearchContext.Provider value={{projects: applySearch(getSCProjects(), search), search}}>
@@ -62,10 +60,11 @@ export default function ProjectsLayout(page: ReactElement) {
                     <div className="relative hidden" id="search-filters">
                         <div className="flex flex-col space-y-3
                             absolute left-0 z-10
-                            w-full mt-2 p-2 pl-4
-                            bg-white shadow-md">
+                            w-full mt-2 p-3 pl-4
+                            rounded-br bg-white shadow-md">
 
-                            <div> {/* show highlighted projects only */}
+                            {/* show highlighted projects only */}
+                            <div>
                                 <input type="checkbox" id="highlightedOnly" name="highlightedOnly" defaultChecked />
                                 <label htmlFor="highlightedOnly" className="pl-2 select-none">Show highlighted only</label>
                             </div>
