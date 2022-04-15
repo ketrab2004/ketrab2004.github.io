@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
 import { SearchContext, useSearchContext, getSCProjects } from "@context";
-import { ISearchInfo } from "@data/search";
+import { ISearchInfo, OrderEnum } from "@data/search";
 import { applySearch } from "@functions";
 
 export default function ProjectsLayout(page: ReactElement) {
@@ -37,14 +37,30 @@ export default function ProjectsLayout(page: ReactElement) {
                     </div>
 
                     <div className="relative hidden" id="search-filters">
-                        <div className="flex
+                        <div className="flex flex-col
                             absolute left-0 z-10
                             w-full mt-2 py-2 pl-4
                             bg-white shadow-md">
 
-                            <div> {/* show highlighted projects only */}
+                            <div className="pb-2"> {/* show highlighted projects only */}
                                 <input type="checkbox" id="highlighted-only" name="highlighted-only" defaultChecked />
                                 <label htmlFor="highlighted-only" className="pl-2 select-none">Show highlighted only</label>
+                            </div>
+
+                            <div className="flex flex-row justify-around pb-2">
+                                <div className="flex flex-col justify-start"> {/* choose order by */}
+                                    <label htmlFor="order-by">Order by</label>
+                                    <select className="border rounded" id="order-by" name="order-by">
+                                        {Object.keys(OrderEnum).map(key => <option value={key}>{key.toLowerCase()}</option>)}
+                                    </select>
+                                </div>
+                                <div className="flex flex-col justify-start"> {/* choose order by direction */}
+                                    <label htmlFor="is-asc">Direction</label>
+                                    <select className="border rounded" id="is-asc" name="is-asc">
+                                        <option value="false">Descending</option>
+                                        <option value="true">Ascending</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
