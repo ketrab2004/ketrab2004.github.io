@@ -6,6 +6,7 @@ import ColourFromNumber from "./ColourFromNumber";
 import GetTextColourForBackground from "./GetTextColourForBackground";
 import HSLToRGB from "./HSLToRGB";
 import applySearch from "./applySearch";
+import orderSearchHolders from "./orderSearchHolders";
 
 export {
     CapitalizeWords,
@@ -19,5 +20,6 @@ export {
 
     HSLToRGB,
 
-    applySearch
+    applySearch,
+    orderSearchHolders
 };
