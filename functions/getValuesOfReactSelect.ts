@@ -1,6 +1,6 @@
 /**
  * get the values of a react-select component as a string[]
- * 
+ *
  * @param input the react-select
  * @returns the values
  */

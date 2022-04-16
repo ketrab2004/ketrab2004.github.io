@@ -1,8 +1,10 @@
 import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
+import Select from "react-select";
 import { SearchContext, useSearchContext, getSCProjects } from "@context";
 import { ISearchInfo, OrderEnum } from "@data/search";
-import { applySearch } from "@functions";
+import { applySearch, CapitalizeWords, getValuesOfReactSelect } from "@functions";
+import { Language, Languages, System, Systems, Tool, Tools, Type, Types } from "@data/tags";
 
 
 // https://stackoverflow.com/a/68253165
@@ -15,6 +17,11 @@ interface IFormElementCollection extends HTMLFormControlsCollection {
 
     afterDate: HTMLInputElement,
     beforeDate: HTMLInputElement,
+
+    types: RadioNodeList,
+    systems: RadioNodeList,
+    languages: RadioNodeList,
+    tools: RadioNodeList
 }
 interface IFormInfo extends HTMLFormElement { readonly elements: IFormElementCollection }
 
@@ -28,6 +35,8 @@ export default function ProjectsLayout(page: ReactElement) {
     const doSearch = (event: React.FormEvent<IFormInfo>) => {
         event.preventDefault(); // prevent submitting form
 
+        console.log(event);
+
         const elements = event.currentTarget.elements;
 
         _setSearch({...search, // keep old search info
@@ -38,7 +47,26 @@ export default function ProjectsLayout(page: ReactElement) {
             orderAsc: elements.orderDir.value == "true" ?? search.orderAsc,
 
             afterDate: elements.afterDate.valueAsDate ?? undefined,
-            beforeDate: elements.beforeDate.valueAsDate ?? undefined
+            beforeDate: elements.beforeDate.valueAsDate ?? undefined,
+
+            type: {
+                ...search.type, // keep old type search info
+                tags: getValuesOfReactSelect(elements.types) as Type[] ?? search.type.tags
+            },
+            system: {
+                ...search.system, // keep old system search info
+                tags: getValuesOfReactSelect(elements.systems) as System[] ?? search.system.tags
+            },
+            languages: {
+                ...search.languages, // keep old languages search info
+                tags: getValuesOfReactSelect(elements.languages) as Language[] ?? search.languages.tags,
+                //TODO mode
+            },
+            tools: {
+                ...search.tools, // keep old tools search info
+                tags: getValuesOfReactSelect(elements.tools) as Tool[] ?? search.tools.tags,
+                //TODO mode
+            }
         });
     }
 
@@ -49,6 +77,8 @@ export default function ProjectsLayout(page: ReactElement) {
         <SearchContext.Provider value={{projects: applySearch(getSCProjects(), search), search}}>
             <Navbar>
                 <form className="flex flex-col justify-center font-nunito text-sm" onSubmit={doSearch}>
+                    <input type="submit" hidden />
+
                     <div className="flex items-center pl-4">
                         <input name="search" className="rounded-md shadow-inner inset-4 border-gray-200 border p-1 mr-2" />
                         <button onClick={toggleFilter} className="
@@ -74,14 +104,14 @@ export default function ProjectsLayout(page: ReactElement) {
                                 <div className="flex flex-col justify-start"> {/* choose order by */}
                                     <label htmlFor="orderBy">Order by</label>
                                     <select className="border rounded" id="orderBy" name="orderBy">
-                                        {Object.keys(OrderEnum).map(key => <option value={key}>{key.toLowerCase()}</option>)}
+                                        {Object.keys(OrderEnum).map(key => <option key={key} value={key}>{CapitalizeWords(key.toLowerCase())}</option>)}
                                     </select>
                                 </div>
                                 <div className="flex flex-col justify-start ml-4"> {/* choose order by direction */}
                                     <label htmlFor="orderDir">Direction</label>
                                     <select className="border rounded" id="orderDir" name="orderDir">
-                                        <option value="false">Descending</option>
-                                        <option value="true">Ascending</option>
+                                        <option title="from high to low" value="false">Descending</option>
+                                        <option title="from low to high" value="true">Ascending</option>
                                     </select>
                                 </div>
                             </div>
@@ -100,6 +130,38 @@ export default function ProjectsLayout(page: ReactElement) {
                                         min={new Date("2016").toLocaleDateString("en-ca")}
                                         max={new Date().toLocaleDateString("en-ca")} />
                                 </div>
+                            </div>
+
+                            {/* select type tags */}
+                            <div>
+                                <label htmlFor="types">Types</label>
+                                <Select className="rounded border" id="types" instanceId="types" name="types" isMulti options={
+                                    Types.map(type => ({value: type, label: CapitalizeWords(type)}))
+                                } />
+                            </div>
+
+                            {/* select system tags */}
+                            <div>
+                                <label htmlFor="systems">Systems</label>
+                                <Select className="rounded border" id="systems" instanceId="systems" name="systems" isMulti options={
+                                    Systems.map(system => ({value: system, label: CapitalizeWords(system)}))
+                                } />
+                            </div>
+
+                            {/* select system tags */}
+                            <div>
+                                <label htmlFor="languages">Languages</label>
+                                <Select className="rounded border" id="languages" instanceId="languages" name="languages" isMulti options={
+                                    Languages.map(language => ({value: language, label: CapitalizeWords(language)}))
+                                } />
+                            </div>
+
+                            {/* select system tags */}
+                            <div>
+                                <label htmlFor="tools">Tools</label>
+                                <Select className="rounded border" id="tools" instanceId="tools" name="tools" isMulti options={
+                                    Tools.map(tool => ({value: tool, label: CapitalizeWords(tool)}))
+                                } />
                             </div>
                         </div>
                     </div>
