@@ -8,6 +8,7 @@ import HSLToRGB from "./HSLToRGB";
 import applySearch from "./applySearch";
 import orderSearchHolders from "./orderSearchHolders";
 import filterSearchHolders, { matchesTags } from "./filterSearchHolders";
+import getValuesOfReactSelect from "./getValuesOfReactSelect";
 
 export {
     CapitalizeWords,
@@ -24,5 +25,7 @@ export {
     applySearch,
     orderSearchHolders,
     filterSearchHolders,
-        matchesTags
+        matchesTags,
+
+    getValuesOfReactSelect
 };

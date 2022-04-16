@@ -14,8 +14,6 @@ export function applySearch(projects: SCProject[], search: ISearchInfo): SCProje
             search
         );
 
-    console.log(toReturn);
-
     // map ISearchHolder[] back to SCProject[]
     return toReturn.map((projectHolder) => projectHolder.project);
 }
