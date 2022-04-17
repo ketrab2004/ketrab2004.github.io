@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 import { Navbar } from "@components";
 import Select from "react-select";
 import { SearchContext, useSearchContext, getSCProjects } from "@context";
-import { ISearchInfo, OrderEnum } from "@data/search";
+import { ISearchInfo, OrderEnum, TagSearchTypeEnum } from "@data/search";
 import { applySearch, CapitalizeWords, getValuesOfReactSelect } from "@functions";
 import { Language, Languages, System, Systems, Tool, Tools, Type, Types } from "@data/tags";
 
@@ -19,9 +19,15 @@ interface IFormElementCollection extends HTMLFormControlsCollection {
     beforeDate: HTMLInputElement,
 
     types: RadioNodeList,
+    // typesMode: HTMLSelectElement,
     systems: RadioNodeList,
+    // systemsMode: HTMLSelectElement,
+
     languages: RadioNodeList,
-    tools: RadioNodeList
+    languagesMode: HTMLSelectElement,
+
+    tools: RadioNodeList,
+    toolsMode: HTMLSelectElement
 }
 interface IFormInfo extends HTMLFormElement { readonly elements: IFormElementCollection }
 
@@ -30,12 +36,8 @@ export default function ProjectsLayout(page: ReactElement) {
     const searchContext = useSearchContext();
     const [search, _setSearch] = useState<ISearchInfo>(searchContext.search);
 
-    console.log(search);
-
     const doSearch = (event: React.FormEvent<IFormInfo>) => {
         event.preventDefault(); // prevent submitting form
-
-        console.log(event);
 
         const elements = event.currentTarget.elements;
 
@@ -60,12 +62,12 @@ export default function ProjectsLayout(page: ReactElement) {
             languages: {
                 ...search.languages, // keep old languages search info
                 tags: getValuesOfReactSelect(elements.languages) as Language[] ?? search.languages.tags,
-                //TODO mode
+                mode: elements.languagesMode.value as TagSearchTypeEnum ?? search.languages.mode
             },
             tools: {
                 ...search.tools, // keep old tools search info
                 tags: getValuesOfReactSelect(elements.tools) as Tool[] ?? search.tools.tags,
-                //TODO mode
+                mode: elements.toolsMode.value as TagSearchTypeEnum ?? search.tools.mode
             }
         });
     }
@@ -150,7 +152,16 @@ export default function ProjectsLayout(page: ReactElement) {
 
                             {/* select system tags */}
                             <div>
-                                <label htmlFor="languages">Languages</label>
+                            <div className="flex items-center justify-between">
+                                    <label htmlFor="languages">Languages</label>
+
+                                    <div>
+                                        <label htmlFor="languagesMode">Mode</label>
+                                        <select className="ml-2 rounded border" id="languagesMode" name="languagesMode">
+                                            {Object.keys(TagSearchTypeEnum).map(key => <option key={key} value={key}>{CapitalizeWords(key.toLowerCase())}</option>)}
+                                        </select>
+                                    </div>
+                                </div>
                                 <Select className="rounded border" id="languages" instanceId="languages" name="languages" isMulti options={
                                     Languages.map(language => ({value: language, label: CapitalizeWords(language)}))
                                 } />
@@ -158,7 +169,16 @@ export default function ProjectsLayout(page: ReactElement) {
 
                             {/* select system tags */}
                             <div>
-                                <label htmlFor="tools">Tools</label>
+                                <div className="flex items-center justify-between">
+                                    <label htmlFor="tools">Tools</label>
+
+                                    <div>
+                                        <label htmlFor="toolsMode">Mode</label>
+                                        <select className="ml-2 rounded border" id="toolsMode" name="toolsMode">
+                                            {Object.keys(TagSearchTypeEnum).map(key => <option key={key} value={key}>{CapitalizeWords(key.toLowerCase())}</option>)}
+                                        </select>
+                                    </div>
+                                </div>
                                 <Select className="rounded border" id="tools" instanceId="tools" name="tools" isMulti options={
                                     Tools.map(tool => ({value: tool, label: CapitalizeWords(tool)}))
                                 } />
