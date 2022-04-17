@@ -8,16 +8,16 @@ export function matchesTags(tags: Tag[], filterTags: Tag[], mode: TagSearchTypeE
     switch (mode) {
         case TagSearchTypeEnum.OR:
             // OR mode: if any of the tags given match, return true
-            tags.forEach((tag) => {
-                if (filterTags.includes(tag)) return true; // if any of the filterTags match, return true
-            });
+            for (const tag of tags) {
+                if (filterTags.includes(tag)) return true; // if tag matches any of the filterTags, return true
+            }
             return false;
 
         case TagSearchTypeEnum.AND:
             // AND mode: only if all of the given tags match, return true
-            filterTags.forEach((tag) => {
-                if (!tags.includes(tag)) return false; // if any of the filterTags aren't found, return false
-            });
+            for (const tag of tags) {
+                if (!filterTags.includes(tag)) return false; // if tag doesn't match one of the filterTags, return false
+            }
             return true; // if all of the tags match, return true
 
         default:
