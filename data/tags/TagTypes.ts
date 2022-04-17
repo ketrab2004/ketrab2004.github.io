@@ -8,7 +8,6 @@ export const Languages = [
     "c++",
     "c#",
     "lua",
-    "luau",
     "js",
     "ts",
     "md",
