@@ -92,7 +92,7 @@ export default function ProjectsLayout(page: ReactElement) {
                     <div className="relative hidden" id="search-filters">
                         <div className="flex flex-col space-y-3
                             absolute left-0 z-10
-                            w-full mt-2 p-3 pl-4
+                            w-[150%] max-w-[100vw] mt-2 p-3 pl-4
                             rounded-br bg-white shadow-md">
 
                             {/* show highlighted projects only */}

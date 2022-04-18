@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { MenuIcon } from "@heroicons/react/solid";
 
 export function NavbarItem({href, children}: {href: string, children?: React.ReactNode}): JSX.Element {
     const router = useRouter();
@@ -25,11 +26,14 @@ export function NavbarItem({href, children}: {href: string, children?: React.Rea
 export function Navbar({ children }: React.PropsWithChildren<{}>): JSX.Element {
     return (
         <header className="Navbar font-sans shadow mb-2 bg-white flex flex-row-reverse justify-between">
-            <ul className="list-none flex flex-row flex-nowrap justify-end">
+            <MenuIcon className="p-3 w-16 sm:hidden transition-colors fill-slate-700 hover:fill-gray-500 active:fill-gray-400" />
+
+            <ul className="list-none hidden sm:flex flex-row flex-nowrap justify-end">
                 <NavbarItem href="/">Home</NavbarItem>
                 <NavbarItem href="/contact">Contact</NavbarItem>
                 <NavbarItem href="/projects">Projects</NavbarItem>
             </ul>
+
             {children}
         </header>
     );
