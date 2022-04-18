@@ -15,7 +15,7 @@ export const Projects: {[key: string]: IProject} = {
     "roblox-infinite-terrain": {
         state: State.Completed,
         title: "Roblox Infinite Terrain",
-        thumbnail: "./images/projects/roblox/infinite-terrain.png",// infiniteTerrainRobloxImage,
+        thumbnail: "projects/roblox/infinite-terrain.png",// infiniteTerrainRobloxImage,
         date: new Date("6/5/2020"), // m d y
 
         type: "game",
@@ -27,7 +27,7 @@ export const Projects: {[key: string]: IProject} = {
     "cannibalism-mod": {
         state: State.Completed,
         title: "The Cannibalism Mod",
-        thumbnail: "./images/projects/mods/cannibalism.png", //cannibalismModImage,
+        thumbnail: "projects/mods/cannibalism.png", //cannibalismModImage,
         date: new Date("25 April, 2020 @ 9:08"),
 
         type: "mod",
@@ -39,7 +39,7 @@ export const Projects: {[key: string]: IProject} = {
     "html5-hangman": {
         state: State.Completed,
         title: "HTML5 Hangman game",
-        thumbnail: "./images/projects/html5/hangman.png", // hangmanHtml5Image,
+        thumbnail: "projects/html5/hangman.png", // hangmanHtml5Image,
         date: new Date("thursday 5 March, 2020 20:20:03 +0100"),
 
         type: "game",
@@ -51,7 +51,7 @@ export const Projects: {[key: string]: IProject} = {
     "cardboard-mod": {
         state: State.Abandoned,
         title: "The Cardboard Mod",
-        thumbnail: "./images/projects/mods/cardboard.png", //cardboardModImage,
+        thumbnail: "projects/mods/cardboard.png", //cardboardModImage,
         date: new Date("21 May, 2018 @ 12:23"),
 
         type: "mod",
@@ -63,7 +63,7 @@ export const Projects: {[key: string]: IProject} = {
     "grass-mod": {
         state: State.Completed,
         title: "The Grass Mod",
-        thumbnail: "./images/projects/mods/grass.png", // grassModImage,
+        thumbnail: "projects/mods/grass.png", // grassModImage,
         date: new Date("10/01/2017 11:19"), // m d y
 
         type: "mod",
