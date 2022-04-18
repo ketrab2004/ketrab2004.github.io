@@ -1,4 +1,5 @@
 import React from "react";
+import Router, { useRouter } from "next/router";
 // import Link from "next/link";
 import { LocalizedLink as Link } from "@components";
 import { format as formatDate } from 'date-fns';
@@ -8,6 +9,7 @@ import { IProject } from "@data/projects";
 import { TagItem, TagsHolder } from "@components";
 
 export default function ProjectItem({url, project}: {url: string, project: IProject}): JSX.Element {
+    const router = useRouter();
     const { title, thumbnail, date, /*state,*/ type,system,languages,tools } = project;
     const tags = [...languages, ...tools];
 
@@ -23,7 +25,7 @@ export default function ProjectItem({url, project}: {url: string, project: IProj
                         w-full h-full absolute-center object-cover
                         transition-transform duration-700
                         group-hover:scale-105 group-active:scale-110 group-focus:scale-105"
-                        src={thumbnail} alt={title} />
+                        src={`${router.basePath ?? ''}/images/${thumbnail}`} alt={title} />
                 </div>
 
                 <div className="px-2 pt-1 pb-2">
