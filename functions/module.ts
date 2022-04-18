@@ -10,6 +10,12 @@ import orderSearchHolders from "./orderSearchHolders";
 import filterSearchHolders, { matchesTags } from "./filterSearchHolders";
 import getValuesOfReactSelect from "./getValuesOfReactSelect";
 
+// cannot be exported with the functions module,
+// because it uses serverSideTranslations() which requires it to be ran on the server
+// which can't be guaranteed if it's exported here (because this is imported everywhere)
+// import { II18nProp, getI18nPaths, getI18nProps, getStaticPaths as getStaticI18nPaths, makeStaticProps as makeStaticI18nProps } from "./getStaticLocales";
+
+
 export {
     CapitalizeWords,
 

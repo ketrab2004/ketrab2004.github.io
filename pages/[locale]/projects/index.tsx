@@ -6,6 +6,14 @@ import { ProjectItem } from "@components";
 import { useSearchContext } from "@context";
 import { ProjectsLayout } from "@layouts";
 
+// import { useTranslation } from "react-i18next";
+import { II18nProp, getStaticPaths, makeStaticProps } from "~/functions/getStaticLocales";
+
+export {getStaticPaths}
+export function getStaticProps(props: II18nProp) {
+    return makeStaticProps(["common"])(props);
+}
+
 export const ProjectsPage: NextPage & { getLayout: (page: ReactElement) => JSX.Element } = () => {
     const ctx = useSearchContext();
     const projects = ctx.projects;

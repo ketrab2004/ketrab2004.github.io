@@ -3,8 +3,18 @@ import type { NextPage } from "next";
 // import ExportedImage from "next-image-export-optimizer"; // no typescript definitions :(
 // import skyCircle2 from "@images/other/SkyCircle2.png";
 
+import { useTranslation } from "react-i18next";
+import { II18nProp, getStaticPaths, makeStaticProps } from "~/functions/getStaticLocales";
+
+export {getStaticPaths}
+export function getStaticProps(props: II18nProp) {
+    console.log(makeStaticProps(["common"])(props));
+    
+    return makeStaticProps(["common"])(props);
+}
+
 const Home: NextPage = () => {
-    // const { t } = useTranslation("common");
+    const { t } = useTranslation("common");
 
     return (
         <main>
@@ -15,7 +25,7 @@ const Home: NextPage = () => {
             <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" /> */}
             {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
             <p>
-                {/* {t("test")} */}
+                { t("test") }
             </p>
             <a
                 className="App-link"

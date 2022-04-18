@@ -4,6 +4,52 @@ import { GetStaticPropsResult, GetStaticPathsResult } from "next";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import Projects, { IProject } from "@data/projects";
 
+// import { useTranslation } from "react-i18next";
+import { II18nProp, getStaticPaths as getStaticI18nPaths, makeStaticProps } from "~/functions/getStaticLocales";
+
+/**
+ * get json for each static project page
+ * so that it can be loaded in in the statically generated pages
+ */
+export function getStaticProps(props: { params: { project: string } } & II18nProp): GetStaticPropsResult<{ project: string /* JSON */ }> {
+    const project = JSON.stringify( Projects[props.params.project] );
+
+    return {
+        ... makeStaticProps(["common"])(props), // add language static props
+        props: {
+            project
+        }
+    };
+}
+
+/**
+ * get all possible projects 
+ * so they can be statically rendered
+ */
+export function getStaticPaths(): GetStaticPathsResult {
+    let paths: ({ params: { project: string } } & II18nProp)[] = [];
+
+    getStaticI18nPaths().paths.forEach(i18nPath => { // loop through languages
+        Object.keys(Projects).forEach(project => { // loop through projects
+
+            paths.push({ // add a path for every language/project combination
+                params: {
+                    project: project,
+
+                    // get locale from params, because getStaticI18nPaths() can be used standalone
+                    locale: i18nPath.params.locale
+                }
+            })
+
+        });
+    });
+
+    return {
+        paths: paths,
+        fallback: false,
+    }
+}
+
 export const ProjectView: NextPage<{ project: string }> = (params: { project: string }) => {
     let {title, thumbnail, date, type, system, languages, tools} = JSON.parse(params.project);
     date = new Date(date); // convert json string to date object
@@ -48,25 +94,5 @@ export const ProjectView: NextPage<{ project: string }> = (params: { project: st
     </>;
 }
 
-/**
- * get json for each static project page
- * so that it can be loaded in in the statically generated pages
- */
-export function getStaticProps(props: { params: { project: string } }): GetStaticPropsResult<{ project: string /* JSON */ }> {
-    const project = JSON.stringify( Projects[props.params.project] );
-
-    return { props: { project } };
-}
-
-/**
- * get all possible projects 
- * so they can be statically rendered
- */
-export function getStaticPaths(): GetStaticPathsResult {
-    return {
-        paths: Object.keys(Projects).map(key => ({ params: { project: key } })),
-        fallback: false,
-    }
-}
 
 export default ProjectView;

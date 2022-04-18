@@ -3,6 +3,14 @@ import type { NextPage } from "next";
 
 import { NextSeo, SocialProfileJsonLd  } from "next-seo";
 
+// import { useTranslation } from "react-i18next";
+import { II18nProp, getStaticPaths, makeStaticProps } from "~/functions/getStaticLocales";
+
+export {getStaticPaths}
+export function getStaticProps(props: II18nProp) {
+    return makeStaticProps(["common"])(props);
+}
+
 export const Contact: NextPage = () => {
     return <>
         <NextSeo
