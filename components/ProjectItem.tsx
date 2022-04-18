@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
-// import Image from "next/image";
+// import Link from "next/link";
+import { LocalizedLink as Link } from "@components";
 import { format as formatDate } from 'date-fns';
 
 import { IProject } from "@data/projects";

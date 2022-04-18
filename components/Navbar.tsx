@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+// import Link from "next/link";
+import { LocalizedLink as Link } from "@components";
 import { MenuIcon } from "@heroicons/react/solid";
 
 export function NavbarItem({href, children}: {href: string, children?: React.ReactNode}): JSX.Element {
