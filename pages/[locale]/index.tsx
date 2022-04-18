@@ -4,6 +4,8 @@ import type { NextPage } from "next";
 // import skyCircle2 from "@images/other/SkyCircle2.png";
 
 const Home: NextPage = () => {
+    // const { t } = useTranslation("common");
+
     return (
         <main>
             <h1 className="text-3xl mb-2">Homepage</h1>
@@ -13,7 +15,7 @@ const Home: NextPage = () => {
             <ExportedImage src="./other/SkyCircle2.png" className="w-96" alt="cool" /> */}
             {/* <Picture src="./images/other/SkyCircle2.png" className="Home-logo animate-spin" alt="logo" /> */}
             <p>
-                Edit <code>src/App.js</code> and save to reload.
+                {/* {t("test")} */}
             </p>
             <a
                 className="App-link"
