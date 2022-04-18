@@ -14,7 +14,7 @@ import getValuesOfReactSelect from "./getValuesOfReactSelect";
 // because it uses serverSideTranslations() which requires it to be ran on the server
 // which can't be guaranteed if it's exported here (because this is imported everywhere)
 // import { II18nProp, getI18nPaths, getI18nProps, getStaticPaths as getStaticI18nPaths, makeStaticProps as makeStaticI18nProps } from "./getStaticLocales";
-
+import getLanguageDetector from "./getLanguageDetector";
 
 export {
     CapitalizeWords,
@@ -33,5 +33,7 @@ export {
     filterSearchHolders,
         matchesTags,
 
-    getValuesOfReactSelect
+    getValuesOfReactSelect,
+    
+    getLanguageDetector
 };
