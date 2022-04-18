@@ -11,15 +11,16 @@ export function useRedirect(to?: string) {
 
     // language detection
     useEffect(() => {
-        const detectedLng = languageDetector.detect()
+        const detectedLng = languageDetector.detect();
+
         if (path.startsWith('/' + detectedLng) && router.route === "/404") { // prevent endless loop
-            router.replace('/' + detectedLng + router.route)
-            return
+            router.replace('/' + detectedLng + "/404");
+            return;
         }
 
         if (languageDetector.cache !== undefined) languageDetector.cache(detectedLng ?? '');
-        router.replace('/' + detectedLng + to)
-    })
+        router.replace('/' + detectedLng + path);
+    });
 
     return <></>;
 };
