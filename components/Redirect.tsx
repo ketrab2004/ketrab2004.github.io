@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getLanguageDetector } from "@functions";
 
 const languageDetector = getLanguageDetector();
 
 // https://locize.com/blog/next-i18n-static/
-export function useRedirect(to?: string) {
+export function useRedirect({to}: {to?: string}) {
     const router = useRouter()
     let path = to ?? router.asPath;
 
@@ -25,7 +25,10 @@ export function useRedirect(to?: string) {
     return <></>;
 };
 
-export function Redirect(to?: string) {
-    useRedirect(to);
+function Redirect({to}: {to?: string}) {
+    useRedirect({to});
     return <></>;
 }
+Redirect.getLayout = (page: ReactElement) => page; // no layout
+
+export {Redirect};
