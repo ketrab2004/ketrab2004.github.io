@@ -2,6 +2,7 @@ import { Navbar, NavbarItem } from "./Navbar";
 import ProjectItem from "./ProjectItem";
 import { TagsHolder, TagItem } from "./Tag";
 import { useRedirect, Redirect } from "./Redirect";
+import LocalizedLink from "./Link";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     TagItem,
 
     useRedirect,
-    Redirect
+    Redirect,
+    LocalizedLink
 };
