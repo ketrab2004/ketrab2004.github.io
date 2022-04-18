@@ -1,7 +1,7 @@
 import { Navbar, NavbarItem } from "./Navbar";
 import ProjectItem from "./ProjectItem";
 import { TagsHolder, TagItem } from "./Tag";
-import { Redirect, getRedirect, useRedirect } from "./Redirect";
+import { useRedirect, Redirect } from "./Redirect";
 
 export {
     Navbar,
@@ -10,5 +10,8 @@ export {
     ProjectItem,
 
     TagsHolder,
-    TagItem
+    TagItem,
+
+    useRedirect,
+    Redirect
 };
