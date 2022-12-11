@@ -2,12 +2,14 @@
 {
     "files.exclude": {
         ".gitignore": true,
-        ".vscode": true
+        ".vscode": true,
+
+        "target/": true
     },
 
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-
+        "Cargo.toml": "Cargo.lock"
     }
 }
