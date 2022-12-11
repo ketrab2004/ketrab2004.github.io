@@ -1,9 +1,21 @@
 [package]
+publish = false
+
 name = "ketrab2004-portfolio-site"
 version = "0.1.0"
+description = "Portfolio site ketrab2004"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+homepage = "https://ketrab2004.github.io/"
+repository = "https://github.com/ketrab2004/ketrab2004.github.io"
+
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 yew = { version = "0.20.0", features = ["csr"] }
+
+[build-dependencies]
+
