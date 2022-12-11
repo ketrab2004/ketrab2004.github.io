@@ -4,9 +4,9 @@
 name: GH Pages on pull request merged
 
 on:
-  pull_request:
-    branches: [ master ]
-    types: [ closed ]
+  # pull_request:
+  #   branches: [ master ]
+  #   types: [ closed ]
 
 env:
   # IS_LOCAL: false

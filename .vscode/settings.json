@@ -2,19 +2,12 @@
 {
     "files.exclude": {
         ".gitignore": true,
-        ".vscode": true,
-        ".next": true,
-        "public/.nojekyll": true,
-        ".babelrc": true,
-        ".eslintrc.json": true,
-        ".github": true,
+        ".vscode": true
+    },
 
-        "node_modules": true,
-        "build": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
 
-        "package-lock.json": true,
-        "next-env.d.ts": true,
-        "other-env.d.ts": true,
-        "next-sitemap.config.js": true
     }
 }
